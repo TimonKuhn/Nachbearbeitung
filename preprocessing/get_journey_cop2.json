@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "tenant": "sbb",
+    "publisher": "SBB",
+    "publisherUrl": "http://www.sbb.ch",
+    "operator": "SBB (Schweizerische Bundesbahnen SBB)",
+    "operatorUrl": "http://www.sbb.ch",
+    "license": null,
+    "licenseUrl": null,
+    "licenseNote": null,
+    "gen_level": null,
+    "train_id": "sbb_140385442770512",
+    "gen_range": [150, 32767]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [880343, 5999716],
+          [880383, 6000058],
+          [880412, 6000191],
+          [880428, 6000232],
+          [880452, 6000282],
+          [880470, 6000314],
+          [880497, 6000353],
+          [880527, 6000391],
+          [880563, 6000427],
+          [880604, 6000465],
+          [788125, 6010887],
+          [788171, 6011067]
+        ]
+      },
+      "properties": {
+        "stroke": "#ffea00",
+        "line_name": "S3",
+        "type": "rail",
+        "event_timestamp": "2024-04-11T07:06:28.821000Z",
+        "train_id": "sbb_140385442770512",
+        "journey_id": 2967826572,
+        "line_id": 35391494,
+        "gen_level": null,
+        "gen_range": [150, 32767]
+      }
+    }
+  ]
+}
+

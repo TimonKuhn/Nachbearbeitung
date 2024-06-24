@@ -1,0 +1,612 @@
+###link
+https://api.geops.io/tracker-http/v1/calls/sbb_140385442770512/?key=5cc87b12d7c5370001c1d65576ce5bd4be5a4a349ca401cdd7cac1ff
+
+###response
+[
+  {
+    "has_realtime": false,
+    "has_realtime_journey": true,
+    "operator_provides_realtime_journey": "yes",
+    "tenant": "sbb",
+    "publisher": "SBB",
+    "publisherUrl": "http://www.sbb.ch",
+    "operator": "SBB (Schweizerische Bundesbahnen SBB)",
+    "operatorUrl": "http://www.sbb.ch",
+    "license": null,
+    "licenseUrl": null,
+    "licenseNote": null,
+    "color": "#ffea00",
+    "stroke": "#ffea00",
+    "text_color": "#000000",
+    "shortName": "S3",
+    "longName": "S3",
+    "id": "sbb_140385442770512",
+    "vehicle_mode": null,
+    "train_number": null,
+    "line": {
+      "id": 35391494,
+      "name": "S3",
+      "color": "#ffea00",
+      "text_color": "#000000",
+      "stroke": "#ffea00"
+    },
+    "destination": "Porrentruy",
+    "new_destination": null,
+    "routeIdentifier": "017338.000011.101:3",
+    "situations": [],
+    "type": "rail",
+    "extra_data": {
+      "event_timestamp": null,
+      "event_location_name": null
+    },
+    "stations": [
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": null,
+        "arrivalTime": "2024-04-11T08:48:00Z",
+        "aimedArrivalTime": "2024-04-11T08:48:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T08:48:00Z",
+        "aimedDepartureTime": "2024-04-11T08:48:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Olten",
+        "coordinate": [
+          880281,
+          5999709
+        ],
+        "platform": "11",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T08:55:00Z",
+        "aimedArrivalTime": "2024-04-11T08:55:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T08:56:00Z",
+        "aimedDepartureTime": "2024-04-11T08:55:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Tecknau",
+        "coordinate": [
+          878046,
+          6015139
+        ],
+        "platform": "4",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T08:59:00Z",
+        "aimedArrivalTime": "2024-04-11T08:59:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:00:00Z",
+        "aimedDepartureTime": "2024-04-11T08:59:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Gelterkinden",
+        "coordinate": [
+          873598,
+          6018454
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:02:00Z",
+        "aimedArrivalTime": "2024-04-11T09:02:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:03:00Z",
+        "aimedDepartureTime": "2024-04-11T09:03:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Sissach",
+        "coordinate": [
+          869631,
+          6017937
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:05:00Z",
+        "aimedArrivalTime": "2024-04-11T09:05:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:05:00Z",
+        "aimedDepartureTime": "2024-04-11T09:05:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Itingen",
+        "coordinate": [
+          866870,
+          6018682
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:07:00Z",
+        "aimedArrivalTime": "2024-04-11T09:07:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:08:00Z",
+        "aimedDepartureTime": "2024-04-11T09:07:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Lausen",
+        "coordinate": [
+          863813,
+          6019187
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:11:00Z",
+        "aimedArrivalTime": "2024-04-11T09:11:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:12:00Z",
+        "aimedDepartureTime": "2024-04-11T09:11:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Liestal",
+        "coordinate": [
+          860652,
+          6021512
+        ],
+        "platform": "4",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT60000S",
+        "arrivalTime": "2024-04-11T09:15:00Z",
+        "aimedArrivalTime": "2024-04-11T09:14:00Z",
+        "cancelled": false,
+        "departureDelay": "P1DT33600S",
+        "departureTime": "2024-04-11T09:16:00Z",
+        "aimedDepartureTime": "2024-04-11T09:14:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Frenkendorf-Füllinsdorf",
+        "coordinate": [
+          859288,
+          6024314
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:18:00Z",
+        "aimedArrivalTime": "2024-04-11T09:18:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:19:00Z",
+        "aimedDepartureTime": "2024-04-11T09:18:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Pratteln",
+        "coordinate": [
+          856138,
+          6027808
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT60000S",
+        "arrivalTime": "2024-04-11T09:22:00Z",
+        "aimedArrivalTime": "2024-04-11T09:21:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:22:00Z",
+        "aimedDepartureTime": "2024-04-11T09:21:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Muttenz",
+        "coordinate": [
+          851360,
+          6029609
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:27:00Z",
+        "aimedArrivalTime": "2024-04-11T09:27:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:37:00Z",
+        "aimedDepartureTime": "2024-04-11T09:37:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Basel SBB",
+        "coordinate": [
+          844866,
+          6031888
+        ],
+        "platform": "17",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:40:00Z",
+        "aimedArrivalTime": "2024-04-11T09:40:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:40:00Z",
+        "aimedDepartureTime": "2024-04-11T09:40:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Basel Dreispitz",
+        "coordinate": [
+          847096,
+          6030243
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:43:00Z",
+        "aimedArrivalTime": "2024-04-11T09:43:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:43:00Z",
+        "aimedDepartureTime": "2024-04-11T09:43:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Münchenstein",
+        "coordinate": [
+          847987,
+          6026280
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "LEAVING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:46:00Z",
+        "aimedArrivalTime": "2024-04-11T09:46:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:46:00Z",
+        "aimedDepartureTime": "2024-04-11T09:46:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Dornach-Arlesheim",
+        "coordinate": [
+          847266,
+          6022197
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:48:00Z",
+        "aimedArrivalTime": "2024-04-11T09:48:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:49:00Z",
+        "aimedDepartureTime": "2024-04-11T09:49:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Aesch BL",
+        "coordinate": [
+          846370,
+          6018759
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:51:00Z",
+        "aimedArrivalTime": "2024-04-11T09:51:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T09:52:00Z",
+        "aimedDepartureTime": "2024-04-11T09:51:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Duggingen",
+        "coordinate": [
+          846413,
+          6016404
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:54:00Z",
+        "aimedArrivalTime": "2024-04-11T09:54:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T09:54:00Z",
+        "aimedDepartureTime": "2024-04-11T09:54:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Grellingen",
+        "coordinate": [
+          845136,
+          6014404
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T09:59:00Z",
+        "aimedArrivalTime": "2024-04-11T09:59:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T10:00:00Z",
+        "aimedDepartureTime": "2024-04-11T09:59:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Zwingen",
+        "coordinate": [
+          838287,
+          6013171
+        ],
+        "platform": "3",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:02:00Z",
+        "aimedArrivalTime": "2024-04-11T10:02:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:03:00Z",
+        "aimedDepartureTime": "2024-04-11T10:03:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Laufen",
+        "coordinate": [
+          835190,
+          6010793
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:17:00Z",
+        "aimedArrivalTime": "2024-04-11T10:17:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:21:00Z",
+        "aimedDepartureTime": "2024-04-11T10:21:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Delémont",
+        "coordinate": [
+          818205,
+          6001365
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:24:00Z",
+        "aimedArrivalTime": "2024-04-11T10:24:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:24:00Z",
+        "aimedDepartureTime": "2024-04-11T10:24:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Courtételle",
+        "coordinate": [
+          814630,
+          5998213
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:26:00Z",
+        "aimedArrivalTime": "2024-04-11T10:26:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T10:27:00Z",
+        "aimedDepartureTime": "2024-04-11T10:26:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Courfaivre",
+        "coordinate": [
+          811649,
+          5996941
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:29:00Z",
+        "aimedArrivalTime": "2024-04-11T10:29:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:30:00Z",
+        "aimedDepartureTime": "2024-04-11T10:30:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Bassecourt",
+        "coordinate": [
+          806715,
+          5997204
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:33:00Z",
+        "aimedArrivalTime": "2024-04-11T10:33:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:33:00Z",
+        "aimedDepartureTime": "2024-04-11T10:33:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Glovelier",
+        "coordinate": [
+          802537,
+          5996962
+        ],
+        "platform": "2",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:37:00Z",
+        "aimedArrivalTime": "2024-04-11T10:37:00Z",
+        "cancelled": false,
+        "departureDelay": "PT60000S",
+        "departureTime": "2024-04-11T10:38:00Z",
+        "aimedDepartureTime": "2024-04-11T10:37:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "St-Ursanne",
+        "coordinate": [
+          797711,
+          6002300
+        ],
+        "platform": null,
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:43:00Z",
+        "aimedArrivalTime": "2024-04-11T10:43:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:44:00Z",
+        "aimedDepartureTime": "2024-04-11T10:44:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Courgenay",
+        "coordinate": [
+          793063,
+          6008470
+        ],
+        "platform": "1",
+        "stopUID": null
+      },
+      {
+        "state": "PENDING",
+        "formation_id": null,
+        "arrivalDelay": "PT0S",
+        "arrivalTime": "2024-04-11T10:50:00Z",
+        "aimedArrivalTime": "2024-04-11T10:50:00Z",
+        "cancelled": false,
+        "departureDelay": "PT0S",
+        "departureTime": "2024-04-11T10:50:00Z",
+        "aimedDepartureTime": "2024-04-11T10:50:00Z",
+        "noDropOff": false,
+        "noPickUp": false,
+        "stationId": null,
+        "stationName": "Porrentruy",
+        "coordinate": [
+          788151,
+          6011051
+        ],
+        "platform": "1",
+        "stopUID": null
+      }
+    ]
+  }
+]

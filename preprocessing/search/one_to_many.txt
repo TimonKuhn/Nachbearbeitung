@@ -1,0 +1,2777 @@
+link:
+https://search.ch/fahrplan/api/route.json?from=Bern&to%5B0%5D=Basel+SBB&to%5B1%5D=Lausanne&to%5B2%5D=Luzern&to%5B3%5D=Winterthur&one_to_many=1
+
+response:
+{
+  "messages": [],
+  "results": [
+    {
+      "key": 0,
+      "url": "//search.ch/fahrplan/Bern..Basel-SBB",
+      "description": "Von Bern nach Basel SBB am Dienstag 23.04.2024",
+      "count": 4,
+      "min_duration": 3240,
+      "rawtime": 3240,
+      "max_duration": 3420,
+      "maxtime": 3420,
+      "connections": [
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 14:38:00",
+          "to": "Basel SBB",
+          "arrival": "2024-04-23 15:32:00",
+          "duration": 3240,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 14:38:00",
+              "tripid": "T2024_001072_000011_101_b208c55_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 6",
+              "terminal": "Basel SBB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "6",
+              "*Z": "001072",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 15:05:00",
+                  "departure": "2024-04-23 15:06:00",
+                  "name": "Olten",
+                  "stopid": "8500218",
+                  "x": 635442,
+                  "y": 244671,
+                  "lon": 7.907707,
+                  "lat": 47.351936
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3240,
+              "exit": {
+                "arrival": "2024-04-23 15:32:00",
+                "stopid": "8500010",
+                "x": 611363,
+                "y": 266310,
+                "name": "Basel SBB",
+                "sbb_name": "Basel SBB",
+                "track": "14",
+                "lon": 7.589577,
+                "lat": 47.547412
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_1.1_TT": "Neigezug",
+                "1_4.6_FZ": "Familienzone ohne Spielplatz",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf",
+                "1_6.5_VB": "VELOS: Platzzahl eingeschränkt"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 15:32:00",
+              "stopid": "8500010",
+              "x": 611363,
+              "y": 266310,
+              "name": "Basel SBB",
+              "sbb_name": "Basel SBB",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 7.589577,
+              "lat": 47.547412
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:04:00",
+          "to": "Basel SBB",
+          "arrival": "2024-04-23 16:01:00",
+          "duration": 3420,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:04:00",
+              "tripid": "T2024_000974_000011_101_ce7e49d_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 6",
+              "terminal": "Basel SBB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "6",
+              "*Z": "000974",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 15:30:00",
+                  "departure": "2024-04-23 15:33:00",
+                  "name": "Olten",
+                  "stopid": "8500218",
+                  "x": 635442,
+                  "y": 244671,
+                  "lon": 7.907707,
+                  "lat": 47.351936
+                },
+                {
+                  "arrival": "2024-04-23 15:49:00",
+                  "departure": "2024-04-23 15:50:00",
+                  "name": "Liestal",
+                  "stopid": "8500023",
+                  "x": 622064,
+                  "y": 259341,
+                  "lon": 7.731377,
+                  "lat": 47.484462
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3420,
+              "exit": {
+                "arrival": "2024-04-23 16:01:00",
+                "stopid": "8500010",
+                "x": 611363,
+                "y": 266310,
+                "name": "Basel SBB",
+                "sbb_name": "Basel SBB",
+                "track": "7",
+                "lon": 7.589577,
+                "lat": 47.547412
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:01:00",
+              "stopid": "8500010",
+              "x": 611363,
+              "y": 266310,
+              "name": "Basel SBB",
+              "sbb_name": "Basel SBB",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 7.589577,
+              "lat": 47.547412
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:38:00",
+          "to": "Basel SBB",
+          "arrival": "2024-04-23 16:32:00",
+          "duration": 3240,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:38:00",
+              "tripid": "T2024_001074_000011_101_26f3fda_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 61",
+              "terminal": "Basel SBB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "61",
+              "*Z": "001074",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 16:05:00",
+                  "departure": "2024-04-23 16:06:00",
+                  "name": "Olten",
+                  "stopid": "8500218",
+                  "x": 635442,
+                  "y": 244671,
+                  "lon": 7.907707,
+                  "lat": 47.351936
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3240,
+              "exit": {
+                "arrival": "2024-04-23 16:32:00",
+                "stopid": "8500010",
+                "x": 611363,
+                "y": 266310,
+                "name": "Basel SBB",
+                "sbb_name": "Basel SBB",
+                "track": "11",
+                "lon": 7.589577,
+                "lat": 47.547412
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:32:00",
+              "stopid": "8500010",
+              "x": 611363,
+              "y": 266310,
+              "name": "Basel SBB",
+              "sbb_name": "Basel SBB",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 7.589577,
+              "lat": 47.547412
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 16:04:00",
+          "to": "Basel SBB",
+          "arrival": "2024-04-23 17:01:00",
+          "duration": 3420,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 16:04:00",
+              "tripid": "T2024_000376_000011_101_6229624_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "ICE",
+              "terminal": "Basel Bad Bf",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "ICE",
+              "*Z": "000376",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 16:30:00",
+                  "departure": "2024-04-23 16:33:00",
+                  "name": "Olten",
+                  "stopid": "8500218",
+                  "x": 635442,
+                  "y": 244671,
+                  "lon": 7.907707,
+                  "lat": 47.351936
+                },
+                {
+                  "arrival": "2024-04-23 16:49:00",
+                  "departure": "2024-04-23 16:50:00",
+                  "name": "Liestal",
+                  "stopid": "8500023",
+                  "x": 622064,
+                  "y": 259341,
+                  "lon": 7.731377,
+                  "lat": 47.484462
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3420,
+              "exit": {
+                "arrival": "2024-04-23 17:01:00",
+                "stopid": "8500010",
+                "x": 611363,
+                "y": 266310,
+                "name": "Basel SBB",
+                "sbb_name": "Basel SBB",
+                "track": "9",
+                "lon": 7.589577,
+                "lat": 47.547412
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_6.6_VR": "VELOS: Reservierung obligatorisch",
+                "0_8.1_R": "Platzreservierung möglich"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 17:01:00",
+              "stopid": "8500010",
+              "x": 611363,
+              "y": 266310,
+              "name": "Basel SBB",
+              "sbb_name": "Basel SBB",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 7.589577,
+              "lat": 47.547412
+            }
+          ]
+        }
+      ],
+      "points": [
+        {
+          "id": "8507000",
+          "text": "Bern",
+          "url": "https://search.ch/map/Bern",
+          "x": "600038",
+          "y": "199750",
+          "lon": 7.439136,
+          "lat": 46.948832
+        },
+        {
+          "id": "8500010",
+          "text": "Basel SBB",
+          "url": "https://search.ch/fahrplan/Basel-SBB",
+          "x": "611363",
+          "y": "266310",
+          "lon": 7.589577,
+          "lat": 47.547412
+        }
+      ]
+    },
+    {
+      "key": 1,
+      "url": "//search.ch/fahrplan/Bern..Lausanne",
+      "description": "Von Bern nach Lausanne am Dienstag 23.04.2024",
+      "count": 4,
+      "min_duration": 4020,
+      "rawtime": 4020,
+      "max_duration": 4320,
+      "maxtime": 4320,
+      "connections": [
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 14:34:00",
+          "to": "Lausanne",
+          "arrival": "2024-04-23 15:41:00",
+          "duration": 4020,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 14:34:00",
+              "tripid": "T2024_000720_000011_101_741c63c_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 1",
+              "terminal": "Genève-Aéroport",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "1",
+              "*Z": "000720",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 14:55:00",
+                  "departure": "2024-04-23 14:56:00",
+                  "name": "Fribourg/Freiburg",
+                  "stopid": "8504100",
+                  "x": 578047,
+                  "y": 183595,
+                  "lon": 7.151052,
+                  "lat": 46.803151
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 4020,
+              "exit": {
+                "arrival": "2024-04-23 15:41:00",
+                "stopid": "8501120",
+                "x": 537875,
+                "y": 152042,
+                "name": "Lausanne",
+                "sbb_name": "Lausanne",
+                "track": "4",
+                "lon": 6.629087,
+                "lat": 46.516795
+              },
+              "occupancy": null,
+              "track": "8",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 15:41:00",
+              "stopid": "8501120",
+              "x": 537875,
+              "y": 152042,
+              "name": "Lausanne",
+              "sbb_name": "Lausanne",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 6.629087,
+              "lat": 46.516795
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:04:00",
+          "to": "Lausanne",
+          "arrival": "2024-04-23 16:16:00",
+          "duration": 4320,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:04:00",
+              "tripid": "T2024_002524_000011_101_88d2c0b_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Genève-Aéroport",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002524",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 15:25:00",
+                  "departure": "2024-04-23 15:26:00",
+                  "name": "Fribourg/Freiburg",
+                  "stopid": "8504100",
+                  "x": 578047,
+                  "y": 183595,
+                  "lon": 7.151052,
+                  "lat": 46.803151
+                },
+                {
+                  "arrival": "2024-04-23 15:44:00",
+                  "departure": "2024-04-23 15:44:00",
+                  "name": "Romont FR",
+                  "stopid": "8504023",
+                  "x": 559703,
+                  "y": 171502,
+                  "lon": 6.911814,
+                  "lat": 46.693515
+                },
+                {
+                  "arrival": "2024-04-23 15:59:00",
+                  "departure": "2024-04-23 16:00:00",
+                  "name": "Palézieux",
+                  "stopid": "8504014",
+                  "x": 553919,
+                  "y": 154785,
+                  "lon": 6.837873,
+                  "lat": 46.542766
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 4320,
+              "exit": {
+                "arrival": "2024-04-23 16:16:00",
+                "stopid": "8501120",
+                "x": 537875,
+                "y": 152042,
+                "name": "Lausanne",
+                "sbb_name": "Lausanne",
+                "track": "6",
+                "lon": 6.629087,
+                "lat": 46.516795
+              },
+              "occupancy": null,
+              "track": "3",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:16:00",
+              "stopid": "8501120",
+              "x": 537875,
+              "y": 152042,
+              "name": "Lausanne",
+              "sbb_name": "Lausanne",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 6.629087,
+              "lat": 46.516795
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:34:00",
+          "to": "Lausanne",
+          "arrival": "2024-04-23 16:41:00",
+          "duration": 4020,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:34:00",
+              "tripid": "T2024_000722_000011_101_ee80006_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 1",
+              "terminal": "Genève-Aéroport",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "1",
+              "*Z": "000722",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 15:55:00",
+                  "departure": "2024-04-23 15:56:00",
+                  "name": "Fribourg/Freiburg",
+                  "stopid": "8504100",
+                  "x": 578047,
+                  "y": 183595,
+                  "lon": 7.151052,
+                  "lat": 46.803151
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 4020,
+              "exit": {
+                "arrival": "2024-04-23 16:41:00",
+                "stopid": "8501120",
+                "x": 537875,
+                "y": 152042,
+                "name": "Lausanne",
+                "sbb_name": "Lausanne",
+                "track": "4",
+                "lon": 6.629087,
+                "lat": 46.516795
+              },
+              "occupancy": null,
+              "track": "3",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:41:00",
+              "stopid": "8501120",
+              "x": 537875,
+              "y": 152042,
+              "name": "Lausanne",
+              "sbb_name": "Lausanne",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 6.629087,
+              "lat": 46.516795
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 16:04:00",
+          "to": "Lausanne",
+          "arrival": "2024-04-23 17:16:00",
+          "duration": 4320,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 16:04:00",
+              "tripid": "T2024_002526_000011_101_e98c0b4_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Genève-Aéroport",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002526",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 16:25:00",
+                  "departure": "2024-04-23 16:26:00",
+                  "name": "Fribourg/Freiburg",
+                  "stopid": "8504100",
+                  "x": 578047,
+                  "y": 183595,
+                  "lon": 7.151052,
+                  "lat": 46.803151
+                },
+                {
+                  "arrival": "2024-04-23 16:44:00",
+                  "departure": "2024-04-23 16:44:00",
+                  "name": "Romont FR",
+                  "stopid": "8504023",
+                  "x": 559703,
+                  "y": 171502,
+                  "lon": 6.911814,
+                  "lat": 46.693515
+                },
+                {
+                  "arrival": "2024-04-23 16:59:00",
+                  "departure": "2024-04-23 17:00:00",
+                  "name": "Palézieux",
+                  "stopid": "8504014",
+                  "x": 553919,
+                  "y": 154785,
+                  "lon": 6.837873,
+                  "lat": 46.542766
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 4320,
+              "exit": {
+                "arrival": "2024-04-23 17:16:00",
+                "stopid": "8501120",
+                "x": 537875,
+                "y": 152042,
+                "name": "Lausanne",
+                "sbb_name": "Lausanne",
+                "track": "4",
+                "lon": 6.629087,
+                "lat": 46.516795
+              },
+              "occupancy": null,
+              "track": "3",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 17:16:00",
+              "stopid": "8501120",
+              "x": 537875,
+              "y": 152042,
+              "name": "Lausanne",
+              "sbb_name": "Lausanne",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 6.629087,
+              "lat": 46.516795
+            }
+          ]
+        }
+      ],
+      "points": [
+        {
+          "id": "8507000",
+          "text": "Bern",
+          "url": "https://search.ch/map/Bern",
+          "x": "600038",
+          "y": "199750",
+          "lon": 7.439136,
+          "lat": 46.948832
+        },
+        {
+          "id": "8501120",
+          "text": "Lausanne",
+          "url": "https://search.ch/fahrplan/Lausanne",
+          "x": "537875",
+          "y": "152042",
+          "lon": 6.629087,
+          "lat": 46.516795
+        }
+      ]
+    },
+    {
+      "key": 2,
+      "url": "//search.ch/fahrplan/Bern..Luzern",
+      "description": "Von Bern nach Luzern am Dienstag 23.04.2024",
+      "count": 10,
+      "min_duration": 3660,
+      "rawtime": 3660,
+      "max_duration": 5160,
+      "maxtime": 5160,
+      "connections": [
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:00:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 16:01:00",
+          "duration": 3660,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:00:00",
+              "tripid": "T2024_002523_000011_101_138c8c9_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Luzern",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002523",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 15:28:00",
+                  "departure": "2024-04-23 15:29:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 15:41:00",
+                  "departure": "2024-04-23 15:42:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3660,
+              "exit": {
+                "arrival": "2024-04-23 16:01:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "4",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "10",
+              "attributes": {
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:01:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:04:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 16:30:00",
+          "duration": 5160,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:04:00",
+              "tripid": "T2024_000974_000011_101_ce7e49d_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 6",
+              "terminal": "Basel SBB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "6",
+              "*Z": "000974",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1560,
+              "exit": {
+                "arrival": "2024-04-23 15:30:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 1140,
+                "track": "7",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 15:30:00",
+              "departure": "2024-04-23 15:49:00",
+              "tripid": "T2024_002477_000011_101_8ce9090_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "IR 27",
+              "terminal": "Luzern",
+              "waittime": 1140,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "27",
+              "*Z": "002477",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 15:56:00",
+                  "departure": "2024-04-23 15:58:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 16:11:00",
+                  "departure": "2024-04-23 16:12:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 2460,
+              "exit": {
+                "arrival": "2024-04-23 16:30:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "8",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 16:30:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:33:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 16:58:00",
+          "duration": 5100,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:33:00",
+              "tripid": "T2024_002179_000011_101_948c3d1_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 16",
+              "terminal": "Zürich HB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "16",
+              "*Z": "002179",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1620,
+              "exit": {
+                "arrival": "2024-04-23 16:00:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 360,
+                "track": "4",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.6_FZ": "Familienzone ohne Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:00:00",
+              "departure": "2024-04-23 16:06:00",
+              "tripid": "T2024_004729_000011_102_4a9f4c3_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "RE",
+              "terminal": "Luzern",
+              "waittime": 360,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "RE",
+              "*L": "24",
+              "*Z": "004729",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 16:12:00",
+                  "departure": "2024-04-23 16:13:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 16:16:00",
+                  "departure": "2024-04-23 16:16:00",
+                  "name": "Reiden",
+                  "stopid": "8502003",
+                  "x": 640139,
+                  "y": 232419,
+                  "lon": 7.968774,
+                  "lat": 47.241469
+                },
+                {
+                  "arrival": "2024-04-23 16:19:00",
+                  "departure": "2024-04-23 16:19:00",
+                  "name": "Dagmersellen",
+                  "stopid": "8502004",
+                  "x": 640934,
+                  "y": 229766,
+                  "lon": 7.979032,
+                  "lat": 47.217558
+                },
+                {
+                  "arrival": "2024-04-23 16:22:00",
+                  "departure": "2024-04-23 16:22:00",
+                  "name": "Nebikon",
+                  "stopid": "8502005",
+                  "x": 640834,
+                  "y": 226966,
+                  "lon": 7.977459,
+                  "lat": 47.192379
+                },
+                {
+                  "arrival": "2024-04-23 16:26:00",
+                  "departure": "2024-04-23 16:26:00",
+                  "name": "Wauwil",
+                  "stopid": "8502006",
+                  "x": 643991,
+                  "y": 226041,
+                  "lon": 8.019025,
+                  "lat": 47.183857
+                },
+                {
+                  "arrival": "2024-04-23 16:30:00",
+                  "departure": "2024-04-23 16:31:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                },
+                {
+                  "arrival": "2024-04-23 16:37:00",
+                  "departure": "2024-04-23 16:37:00",
+                  "name": "Sempach-Neuenkirch",
+                  "stopid": "8502009",
+                  "x": 657476,
+                  "y": 218617,
+                  "lon": 8.195982,
+                  "lat": 47.116048
+                },
+                {
+                  "arrival": "2024-04-23 16:42:00",
+                  "departure": "2024-04-23 16:42:00",
+                  "name": "Rothenburg Station",
+                  "stopid": "8502020",
+                  "x": 661421,
+                  "y": 215669,
+                  "lon": 8.247561,
+                  "lat": 47.089178
+                },
+                {
+                  "arrival": "2024-04-23 16:47:00",
+                  "departure": "2024-04-23 16:48:00",
+                  "name": "Emmenbrücke Gersag",
+                  "stopid": "8502028",
+                  "x": 663656,
+                  "y": 214484,
+                  "lon": 8.276827,
+                  "lat": 47.078309
+                },
+                {
+                  "arrival": "2024-04-23 16:50:00",
+                  "departure": "2024-04-23 16:50:00",
+                  "name": "Emmenbrücke",
+                  "stopid": "8502021",
+                  "x": 664101,
+                  "y": 213631,
+                  "lon": 8.282565,
+                  "lat": 47.070593
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3120,
+              "exit": {
+                "arrival": "2024-04-23 16:58:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "9",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "11",
+              "attributes": {
+                "1_0_BA": "Fahrplanänderung"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 16:58:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 16:00:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 17:01:00",
+          "duration": 3660,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 16:00:00",
+              "tripid": "T2024_002525_000011_101_b47412e_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Luzern",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002525",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 16:28:00",
+                  "departure": "2024-04-23 16:29:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 16:41:00",
+                  "departure": "2024-04-23 16:42:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3660,
+              "exit": {
+                "arrival": "2024-04-23 17:01:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "4",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "10",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 17:01:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 16:04:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 17:30:00",
+          "duration": 5160,
+          "legs": [
+            {
+              "departure": "2024-04-23 16:04:00",
+              "tripid": "T2024_000376_000011_101_6229624_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "ICE",
+              "terminal": "Basel Bad Bf",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "ICE",
+              "*Z": "000376",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1560,
+              "exit": {
+                "arrival": "2024-04-23 16:30:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 1140,
+                "track": "7",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_6.6_VR": "VELOS: Reservierung obligatorisch",
+                "0_8.1_R": "Platzreservierung möglich"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:30:00",
+              "departure": "2024-04-23 16:49:00",
+              "tripid": "T2024_002479_000011_101_66f5e8e_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "IR 27",
+              "terminal": "Luzern",
+              "waittime": 1140,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "27",
+              "*Z": "002479",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 16:56:00",
+                  "departure": "2024-04-23 16:58:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 17:11:00",
+                  "departure": "2024-04-23 17:12:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 2460,
+              "exit": {
+                "arrival": "2024-04-23 17:30:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "8",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 17:30:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 16:33:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 17:55:00",
+          "duration": 4920,
+          "legs": [
+            {
+              "departure": "2024-04-23 16:33:00",
+              "tripid": "T2024_002181_000011_101_eaa2596_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 16",
+              "terminal": "Zürich HB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "16",
+              "*Z": "002181",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1620,
+              "exit": {
+                "arrival": "2024-04-23 17:00:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 360,
+                "track": "4",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.6_FZ": "Familienzone ohne Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 17:00:00",
+              "departure": "2024-04-23 17:06:00",
+              "tripid": "T2024_004731_000011_101_3746da6_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "RE",
+              "terminal": "Luzern",
+              "waittime": 360,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "RE",
+              "*L": "24",
+              "*Z": "004731",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 17:12:00",
+                  "departure": "2024-04-23 17:13:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 17:16:00",
+                  "departure": "2024-04-23 17:16:00",
+                  "name": "Reiden",
+                  "stopid": "8502003",
+                  "x": 640139,
+                  "y": 232419,
+                  "lon": 7.968774,
+                  "lat": 47.241469
+                },
+                {
+                  "arrival": "2024-04-23 17:19:00",
+                  "departure": "2024-04-23 17:19:00",
+                  "name": "Dagmersellen",
+                  "stopid": "8502004",
+                  "x": 640934,
+                  "y": 229766,
+                  "lon": 7.979032,
+                  "lat": 47.217558
+                },
+                {
+                  "arrival": "2024-04-23 17:22:00",
+                  "departure": "2024-04-23 17:22:00",
+                  "name": "Nebikon",
+                  "stopid": "8502005",
+                  "x": 640834,
+                  "y": 226966,
+                  "lon": 7.977459,
+                  "lat": 47.192379
+                },
+                {
+                  "arrival": "2024-04-23 17:26:00",
+                  "departure": "2024-04-23 17:26:00",
+                  "name": "Wauwil",
+                  "stopid": "8502006",
+                  "x": 643991,
+                  "y": 226041,
+                  "lon": 8.019025,
+                  "lat": 47.183857
+                },
+                {
+                  "arrival": "2024-04-23 17:30:00",
+                  "departure": "2024-04-23 17:31:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                },
+                {
+                  "arrival": "2024-04-23 17:37:00",
+                  "departure": "2024-04-23 17:37:00",
+                  "name": "Sempach-Neuenkirch",
+                  "stopid": "8502009",
+                  "x": 657476,
+                  "y": 218617,
+                  "lon": 8.195982,
+                  "lat": 47.116048
+                },
+                {
+                  "arrival": "2024-04-23 17:42:00",
+                  "departure": "2024-04-23 17:42:00",
+                  "name": "Rothenburg Station",
+                  "stopid": "8502020",
+                  "x": 661421,
+                  "y": 215669,
+                  "lon": 8.247561,
+                  "lat": 47.089178
+                },
+                {
+                  "arrival": "2024-04-23 17:47:00",
+                  "departure": "2024-04-23 17:47:00",
+                  "name": "Emmenbrücke",
+                  "stopid": "8502021",
+                  "x": 664101,
+                  "y": 213631,
+                  "lon": 8.282565,
+                  "lat": 47.070593
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 2940,
+              "exit": {
+                "arrival": "2024-04-23 17:55:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "9",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "11",
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 17:55:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 17:00:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 18:01:00",
+          "duration": 3660,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 17:00:00",
+              "tripid": "T2024_002527_000011_101_62d441a_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Luzern",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002527",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 17:28:00",
+                  "departure": "2024-04-23 17:29:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 17:41:00",
+                  "departure": "2024-04-23 17:42:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3660,
+              "exit": {
+                "arrival": "2024-04-23 18:01:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "5",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "10",
+              "attributes": {
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 18:01:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 17:04:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 18:30:00",
+          "duration": 5160,
+          "legs": [
+            {
+              "departure": "2024-04-23 17:04:00",
+              "tripid": "T2024_000978_000011_101_dae9fd5_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 6",
+              "terminal": "Basel SBB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "6",
+              "*Z": "000978",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1560,
+              "exit": {
+                "arrival": "2024-04-23 17:30:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 1140,
+                "track": "7",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "4",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 17:30:00",
+              "departure": "2024-04-23 17:49:00",
+              "tripid": "T2024_002481_000011_101_2f14473_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "IR 27",
+              "terminal": "Luzern",
+              "waittime": 1140,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "27",
+              "*Z": "002481",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 17:56:00",
+                  "departure": "2024-04-23 17:58:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 18:11:00",
+                  "departure": "2024-04-23 18:12:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 2460,
+              "exit": {
+                "arrival": "2024-04-23 18:30:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "8",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 18:30:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 17:33:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 18:55:00",
+          "duration": 4920,
+          "legs": [
+            {
+              "departure": "2024-04-23 17:33:00",
+              "tripid": "T2024_002183_000011_101_7aee112_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 16",
+              "terminal": "Zürich HB",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "16",
+              "*Z": "002183",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1620,
+              "exit": {
+                "arrival": "2024-04-23 18:00:00",
+                "stopid": "8500218",
+                "x": 635442,
+                "y": 244671,
+                "name": "Olten",
+                "sbb_name": "Olten",
+                "waittime": 360,
+                "track": "4",
+                "lon": 7.907707,
+                "lat": 47.351936
+              },
+              "occupancy": null,
+              "track": "12",
+              "attributes": {
+                "1_4.6_FZ": "Familienzone ohne Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 18:00:00",
+              "departure": "2024-04-23 18:06:00",
+              "tripid": "T2024_004733_000011_101_95643d1_0",
+              "stopid": "8500218",
+              "x": 635442,
+              "y": 244671,
+              "name": "Olten",
+              "sbb_name": "Olten",
+              "type": "express_train",
+              "line": "RE",
+              "terminal": "Luzern",
+              "waittime": 360,
+              "normal_time": 300,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "RE",
+              "*L": "24",
+              "*Z": "004733",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 18:12:00",
+                  "departure": "2024-04-23 18:13:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 18:16:00",
+                  "departure": "2024-04-23 18:16:00",
+                  "name": "Reiden",
+                  "stopid": "8502003",
+                  "x": 640139,
+                  "y": 232419,
+                  "lon": 7.968774,
+                  "lat": 47.241469
+                },
+                {
+                  "arrival": "2024-04-23 18:19:00",
+                  "departure": "2024-04-23 18:19:00",
+                  "name": "Dagmersellen",
+                  "stopid": "8502004",
+                  "x": 640934,
+                  "y": 229766,
+                  "lon": 7.979032,
+                  "lat": 47.217558
+                },
+                {
+                  "arrival": "2024-04-23 18:22:00",
+                  "departure": "2024-04-23 18:22:00",
+                  "name": "Nebikon",
+                  "stopid": "8502005",
+                  "x": 640834,
+                  "y": 226966,
+                  "lon": 7.977459,
+                  "lat": 47.192379
+                },
+                {
+                  "arrival": "2024-04-23 18:26:00",
+                  "departure": "2024-04-23 18:26:00",
+                  "name": "Wauwil",
+                  "stopid": "8502006",
+                  "x": 643991,
+                  "y": 226041,
+                  "lon": 8.019025,
+                  "lat": 47.183857
+                },
+                {
+                  "arrival": "2024-04-23 18:30:00",
+                  "departure": "2024-04-23 18:31:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                },
+                {
+                  "arrival": "2024-04-23 18:37:00",
+                  "departure": "2024-04-23 18:37:00",
+                  "name": "Sempach-Neuenkirch",
+                  "stopid": "8502009",
+                  "x": 657476,
+                  "y": 218617,
+                  "lon": 8.195982,
+                  "lat": 47.116048
+                },
+                {
+                  "arrival": "2024-04-23 18:42:00",
+                  "departure": "2024-04-23 18:42:00",
+                  "name": "Rothenburg Station",
+                  "stopid": "8502020",
+                  "x": 661421,
+                  "y": 215669,
+                  "lon": 8.247561,
+                  "lat": 47.089178
+                },
+                {
+                  "arrival": "2024-04-23 18:47:00",
+                  "departure": "2024-04-23 18:47:00",
+                  "name": "Emmenbrücke",
+                  "stopid": "8502021",
+                  "x": 664101,
+                  "y": 213631,
+                  "lon": 8.282565,
+                  "lat": 47.070593
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 2940,
+              "exit": {
+                "arrival": "2024-04-23 18:55:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "9",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "11B-D",
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.907707,
+              "lat": 47.351936
+            },
+            {
+              "arrival": "2024-04-23 18:55:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 18:00:00",
+          "to": "Luzern",
+          "arrival": "2024-04-23 19:01:00",
+          "duration": 3660,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 18:00:00",
+              "tripid": "T2024_002529_000011_101_e72135b_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IR 15",
+              "terminal": "Luzern",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "15",
+              "*Z": "002529",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 18:28:00",
+                  "departure": "2024-04-23 18:29:00",
+                  "name": "Zofingen",
+                  "stopid": "8502001",
+                  "x": 638164,
+                  "y": 237585,
+                  "lon": 7.943128,
+                  "lat": 47.288051
+                },
+                {
+                  "arrival": "2024-04-23 18:41:00",
+                  "departure": "2024-04-23 18:42:00",
+                  "name": "Sursee",
+                  "stopid": "8502007",
+                  "x": 649981,
+                  "y": 224636,
+                  "lon": 8.097894,
+                  "lat": 47.170794
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3660,
+              "exit": {
+                "arrival": "2024-04-23 19:01:00",
+                "stopid": "8505000",
+                "x": 666224,
+                "y": 211384,
+                "name": "Luzern",
+                "sbb_name": "Luzern",
+                "track": "5",
+                "lon": 8.310185,
+                "lat": 47.050174
+              },
+              "occupancy": null,
+              "track": "10",
+              "attributes": {
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 19:01:00",
+              "stopid": "8505000",
+              "x": 666224,
+              "y": 211384,
+              "name": "Luzern",
+              "sbb_name": "Luzern",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.310185,
+              "lat": 47.050174
+            }
+          ]
+        }
+      ],
+      "points": [
+        {
+          "id": "8507000",
+          "text": "Bern",
+          "url": "https://search.ch/map/Bern",
+          "x": "600038",
+          "y": "199750",
+          "lon": 7.439136,
+          "lat": 46.948832
+        },
+        {
+          "id": "8505000",
+          "text": "Luzern",
+          "url": "https://search.ch/fahrplan/Luzern",
+          "x": "666224",
+          "y": "211384",
+          "lon": 8.310185,
+          "lat": 47.050174
+        }
+      ]
+    },
+    {
+      "key": 3,
+      "url": "//search.ch/fahrplan/Bern..Winterthur",
+      "description": "Von Bern nach Winterthur am Dienstag 23.04.2024",
+      "count": 4,
+      "min_duration": 5220,
+      "rawtime": 5220,
+      "max_duration": 5700,
+      "maxtime": 5700,
+      "connections": [
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 14:31:00",
+          "to": "Winterthur",
+          "arrival": "2024-04-23 15:59:00",
+          "duration": 5280,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 14:31:00",
+              "tripid": "T2024_000721_000011_101_00fe5a1_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 1",
+              "terminal": "St. Gallen",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "1",
+              "*Z": "000721",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3420,
+              "exit": {
+                "arrival": "2024-04-23 15:28:00",
+                "stopid": "8503000",
+                "x": 683212,
+                "y": 248030,
+                "name": "Zürich HB",
+                "sbb_name": "Zürich HB",
+                "waittime": 420,
+                "track": "34",
+                "lon": 8.540502,
+                "lat": 47.377847
+              },
+              "occupancy": null,
+              "track": "3",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 15:28:00",
+              "departure": "2024-04-23 15:35:00",
+              "tripid": "T2024_002125_000011_101_10e8d23_0",
+              "stopid": "8503000",
+              "x": 683212,
+              "y": 248030,
+              "name": "Zürich HB",
+              "sbb_name": "Zürich HB",
+              "type": "express_train",
+              "line": "IR 75",
+              "terminal": "Konstanz",
+              "waittime": 420,
+              "normal_time": 420,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "75",
+              "*Z": "002125",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 15:44:00",
+                  "departure": "2024-04-23 15:46:00",
+                  "name": "Zürich Flughafen",
+                  "stopid": "8503016",
+                  "x": 684750,
+                  "y": 256117,
+                  "lon": 8.562398,
+                  "lat": 47.450379
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1440,
+              "exit": {
+                "arrival": "2024-04-23 15:59:00",
+                "stopid": "8506000",
+                "x": 696832,
+                "y": 261857,
+                "name": "Winterthur",
+                "sbb_name": "Winterthur",
+                "track": "6",
+                "lon": 8.723822,
+                "lat": 47.500331
+              },
+              "occupancy": null,
+              "track": "32",
+              "attributes": {
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 8.540502,
+              "lat": 47.377847
+            },
+            {
+              "arrival": "2024-04-23 15:59:00",
+              "stopid": "8506000",
+              "x": 696832,
+              "y": 261857,
+              "name": "Winterthur",
+              "sbb_name": "Winterthur",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.723822,
+              "lat": 47.500331
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 14:31:00",
+          "to": "Winterthur",
+          "arrival": "2024-04-23 16:06:00",
+          "duration": 5700,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 14:31:00",
+              "tripid": "T2024_000721_000011_101_00fe5a1_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 1",
+              "terminal": "St. Gallen",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "1",
+              "*Z": "000721",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 15:28:00",
+                  "departure": "2024-04-23 15:39:00",
+                  "name": "Zürich HB",
+                  "stopid": "8503000",
+                  "x": 683212,
+                  "y": 248030,
+                  "lon": 8.540502,
+                  "lat": 47.377847
+                },
+                {
+                  "arrival": "2024-04-23 15:45:00",
+                  "departure": "2024-04-23 15:46:00",
+                  "name": "Zürich Oerlikon",
+                  "stopid": "8503006",
+                  "x": 683434,
+                  "y": 251778,
+                  "lon": 8.54414,
+                  "lat": 47.411526
+                },
+                {
+                  "arrival": "2024-04-23 15:51:00",
+                  "departure": "2024-04-23 15:53:00",
+                  "name": "Zürich Flughafen",
+                  "stopid": "8503016",
+                  "x": 684750,
+                  "y": 256117,
+                  "lon": 8.562398,
+                  "lat": 47.450379
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 5700,
+              "exit": {
+                "arrival": "2024-04-23 16:06:00",
+                "stopid": "8506000",
+                "x": 696832,
+                "y": 261857,
+                "name": "Winterthur",
+                "sbb_name": "Winterthur",
+                "track": "5",
+                "lon": 8.723822,
+                "lat": 47.500331
+              },
+              "occupancy": null,
+              "track": "3",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:06:00",
+              "stopid": "8506000",
+              "x": 696832,
+              "y": 261857,
+              "name": "Winterthur",
+              "sbb_name": "Winterthur",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.723822,
+              "lat": 47.500331
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:02:00",
+          "to": "Winterthur",
+          "arrival": "2024-04-23 16:29:00",
+          "duration": 5220,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:02:00",
+              "tripid": "T2024_000823_000011_101_ec2d696_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 81",
+              "terminal": "Romanshorn",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "81",
+              "*Z": "000823",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                },
+                {
+                  "arrival": "2024-04-23 15:58:00",
+                  "departure": "2024-04-23 16:05:00",
+                  "name": "Zürich HB",
+                  "stopid": "8503000",
+                  "x": 683212,
+                  "y": 248030,
+                  "lon": 8.540502,
+                  "lat": 47.377847
+                },
+                {
+                  "arrival": "2024-04-23 16:14:00",
+                  "departure": "2024-04-23 16:16:00",
+                  "name": "Zürich Flughafen",
+                  "stopid": "8503016",
+                  "x": 684750,
+                  "y": 256117,
+                  "lon": 8.562398,
+                  "lat": 47.450379
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 5220,
+              "exit": {
+                "arrival": "2024-04-23 16:29:00",
+                "stopid": "8506000",
+                "x": 696832,
+                "y": 261857,
+                "name": "Winterthur",
+                "sbb_name": "Winterthur",
+                "track": "6",
+                "lon": 8.723822,
+                "lat": 47.500331
+              },
+              "occupancy": null,
+              "track": "2",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:29:00",
+              "stopid": "8506000",
+              "x": 696832,
+              "y": 261857,
+              "name": "Winterthur",
+              "sbb_name": "Winterthur",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.723822,
+              "lat": 47.500331
+            }
+          ]
+        },
+        {
+          "from": "Bern",
+          "departure": "2024-04-23 15:31:00",
+          "to": "Winterthur",
+          "arrival": "2024-04-23 16:59:00",
+          "duration": 5280,
+          "is_main": true,
+          "legs": [
+            {
+              "departure": "2024-04-23 15:31:00",
+              "tripid": "T2024_000723_000011_101_39204ba_0",
+              "stopid": "8507000",
+              "x": 600038,
+              "y": 199750,
+              "name": "Bern",
+              "sbb_name": "Bern",
+              "type": "express_train",
+              "line": "IC 1",
+              "terminal": "St. Gallen",
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IC",
+              "*L": "1",
+              "*Z": "000723",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "name": "Bahn-2000-Strecke",
+                  "stopid": "0000132",
+                  "x": 619000,
+                  "y": 227300,
+                  "lon": 7.689367,
+                  "lat": 47.196371
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 3420,
+              "exit": {
+                "arrival": "2024-04-23 16:28:00",
+                "stopid": "8503000",
+                "x": 683212,
+                "y": 248030,
+                "name": "Zürich HB",
+                "sbb_name": "Zürich HB",
+                "waittime": 420,
+                "track": "34",
+                "lon": 8.540502,
+                "lat": 47.377847
+              },
+              "occupancy": null,
+              "track": "8",
+              "attributes": {
+                "0_1.4_WR": "Restaurant",
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "0_8.1_R": "Platzreservierung möglich",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 7.439136,
+              "lat": 46.948832
+            },
+            {
+              "arrival": "2024-04-23 16:28:00",
+              "departure": "2024-04-23 16:35:00",
+              "tripid": "T2024_002127_000011_101_0dbf861_0",
+              "stopid": "8503000",
+              "x": 683212,
+              "y": 248030,
+              "name": "Zürich HB",
+              "sbb_name": "Zürich HB",
+              "type": "express_train",
+              "line": "IR 75",
+              "terminal": "Konstanz",
+              "waittime": 420,
+              "normal_time": 420,
+              "fgcolor": "fff",
+              "bgcolor": "f00",
+              "*G": "IR",
+              "*L": "75",
+              "*Z": "002127",
+              "operator": "SBB",
+              "stops": [
+                {
+                  "arrival": "2024-04-23 16:44:00",
+                  "departure": "2024-04-23 16:46:00",
+                  "name": "Zürich Flughafen",
+                  "stopid": "8503016",
+                  "x": 684750,
+                  "y": 256117,
+                  "lon": 8.562398,
+                  "lat": 47.450379
+                }
+              ],
+              "contop_stop": null,
+              "runningtime": 1440,
+              "exit": {
+                "arrival": "2024-04-23 16:59:00",
+                "stopid": "8506000",
+                "x": 696832,
+                "y": 261857,
+                "name": "Winterthur",
+                "sbb_name": "Winterthur",
+                "track": "6",
+                "lon": 8.723822,
+                "lat": 47.500331
+              },
+              "occupancy": null,
+              "track": "33",
+              "attributes": {
+                "0_4.8_RZ": "Ruhezone in 1. Klasse",
+                "1_4.6_FA": "Familienwagen mit Spielplatz",
+                "1_4.7_BZ": "Businesszone in 1. Klasse",
+                "1_4.7_FS": "Gratis-Internet mit der App SBB FreeSurf"
+              },
+              "disruptions": [],
+              "type_name": "Zug",
+              "lon": 8.540502,
+              "lat": 47.377847
+            },
+            {
+              "arrival": "2024-04-23 16:59:00",
+              "stopid": "8506000",
+              "x": 696832,
+              "y": 261857,
+              "name": "Winterthur",
+              "sbb_name": "Winterthur",
+              "normal_time": 0,
+              "stops": null,
+              "contop_stop": null,
+              "lon": 8.723822,
+              "lat": 47.500331
+            }
+          ]
+        }
+      ],
+      "points": [
+        {
+          "id": "8507000",
+          "text": "Bern",
+          "url": "https://search.ch/map/Bern",
+          "x": "600038",
+          "y": "199750",
+          "lon": 7.439136,
+          "lat": 46.948832
+        },
+        {
+          "id": "8506000",
+          "text": "Winterthur",
+          "url": "https://search.ch/fahrplan/Winterthur",
+          "x": "696832",
+          "y": "261857",
+          "lon": 8.723822,
+          "lat": 47.500331
+        }
+      ]
+    }
+  ],
+  "request": null,
+  "eof": 1
+}

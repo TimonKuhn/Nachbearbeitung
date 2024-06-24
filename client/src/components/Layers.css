@@ -1,0 +1,113 @@
+/* Stili per il componente DropdownChecklist */
+.dropdown-checklist-container {
+  position: absolute;
+  display: inline-block;
+  z-index: 999;
+  left: 3.5%;
+  top: 1%;
+  transition: left 0.3s, width 0.3s; /* Aggiunta la transizione per il movimento del menu */
+}
+
+.dropdown-toggle {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+}
+
+.dropdown-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.dropdown-checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.dropdown-icon {
+  margin-right: 5px;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .dropdown-checklist-container {
+    left: -221px; /* Nasconde il menu fuori dallo schermo */
+    width: 210px;
+    height: 100%;
+  }
+
+  .dropdown-checklist-container.open {
+    left: 0; /* Mostra il menu */
+  }
+
+  .dropdown-toggle {
+    position: absolute;
+    top: 25%;
+    left: 100%;
+    width: 0;
+    height: 224px;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .dropdown-toggle::before {
+    content: '||';
+    font-size: 50;
+  }
+
+  .dropdown-content {
+    top: 25%; /* Adjust to prevent overlap with toggle button */
+    left: 0;
+    border-radius: 0;
+  }
+}
+
+/* Stili per la versione desktop */
+@media (min-width: 769px) {
+  .dropdown-checklist-container {
+    left: 0.5%; /* Mantiene la posizione attuale */
+    bottom: 30%;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    position: absolute;
+  }
+
+  .dropdown-toggle {
+    display: none; /* Nasconde il toggle per il menu desktop */
+  }
+
+  .dropdown-content {
+    display: block;
+    border-radius: 0;
+  }
+
+  .dropdown-checkbox {
+    margin-right: 15px;
+  }
+}
+
+.dropdown-checkbox .dropdown-checkbox-image {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+}
