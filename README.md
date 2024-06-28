@@ -12,13 +12,20 @@ https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
 https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS
 
 3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
+
+WMS läuft auf anhieb ohne Probleme.
+WFS läuft im QGis test. Im Geoserver nicht. Über die Netzwerkdiagnose wurde in QGis der Link zu den GetCapabilities herausgefunden, welcher ansonsten versteckt war. Leider wieder kein Erfolg.
+
 ???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
 
 4.) Integration im Backend
-Wenn es nur eine Verlängerung der Pipline ist...?
+
+Pipeline ist nun:
+Extern (Stadt Bern) -> Geoserver -> Backend -> Frontend
 
 5.) Integration im Frontend
-npm install gibt warnings und npm run gibt macht nichts
+
+npm install gibt warnings und npm run gibt macht nicht was man benötigt. So kann das App nicht lokal getestet werden.
 
 
 
