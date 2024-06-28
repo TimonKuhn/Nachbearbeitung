@@ -15,7 +15,10 @@ https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?req
 ???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
 
 4.) Integration im Backend
+Wenn es nur eine Verlängerung der Pipline ist...?
 
+5.) Integration im Frontend
+npm install gibt warnings und npm run gibt macht nichts
 
 
 
