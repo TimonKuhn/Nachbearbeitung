@@ -1,3 +1,26 @@
+# Dokumentation Nacharbeit:
+
+1.) Repo clonen und zur verfügung stellen
+
+2.) Datensätze aussuchen: Ein WM(T)S und ein WFS, gewünscht wären sämmtliche ÖV-Linien und Haltestellen über die gesammte Schweiz. Leider gibt es solche Datensätze nicht. Deswegen wurde diese Funktionalität für Demo-Zwecke auf den Ballungsraum Bern beschränkt: 
+https://opendata.swiss/de/dataset/ov-linien
+https://opendata.swiss/de/dataset/ov-haltestellen
+
+Die beiden Services wurden in QGis testweise eingebunden, wie in "Datenvisualisierung.png" zu sehen ist:
+![Datenvisualisierung](Datenvisualisierung.PNG)
+https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
+https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS
+
+3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
+???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
+
+4.) Integration im Backend
+
+
+
+
+
+# Bestehende Dokumentation
 # ÖV-Now
 
 ## Beschreibung
