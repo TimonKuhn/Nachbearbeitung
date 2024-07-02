@@ -16,16 +16,30 @@ https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?req
 WMS läuft auf anhieb ohne Probleme.
 WFS läuft im QGis test. Im Geoserver nicht. Über die Netzwerkdiagnose wurde in QGis der Link zu den GetCapabilities herausgefunden, welcher ansonsten versteckt war. Leider wieder kein Erfolg.
 
+Aus einem nicht herausgefundenen Grund kann ich die in QGIS und im Browser funktionierende GetCapabilities URL zwar in der erstellung des Datastore angeben, im Log des Errors beim Preview kommt jedoch heraus, dass es eine andere url abfragt.
+
+In der Layerdefinition kann definiert werden, dass die Koordinaten von LV95 auf Web-Mercator Projeziert werden sollen.
+
 ???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
 
-4.) Integration im Backend
+
+4.) Integration im Backend von WMS und WFS:
 
 Pipeline ist nun:
-Extern (Stadt Bern) -> Geoserver -> Backend -> Frontend
+Extern (Stadt Bern) -> Geoserver (mit Transformation) -> Backend -> Frontend
+
+!!!! reset backend auf stand vor letzer anpassung, da koordinatentransformation jetzt im geoserver !!!
+
+Bestehen bleibt die Pipline der bisherige API's:
+geOps -> Backend -> Frontend
+Leider funktioniert dieser nicht mehr da die API unseren Zugrif nicht mehr gestattet.
+
 
 5.) Integration im Frontend
 
 npm install gibt warnings und npm run gibt macht nicht was man benötigt. So kann das App nicht lokal getestet werden.
+Das Problem lag am Pfad des Repos im Onedrive-Ordner. Nach einer Verschiebung auf ein tieferes Ordnerlevel ohne Leerschläge gibt es keine Probleme mehr, das Frontend zu starten.
+
 
 
 

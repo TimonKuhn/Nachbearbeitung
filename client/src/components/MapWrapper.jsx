@@ -169,7 +169,7 @@ const MapWrapper = forwardRef((props, ref) => {
             Object.keys(layerVisibility).forEach((layerType) => {
                 if (layerVisibility[layerType]) {
                     console.log(`Fetching data for layer: ${layerType}`);
-                    fetch(`http://10.175.23.153:8000/get_all_journey/?bbox=${newBbox}&key=5cc87b12d7c5370001c1d6559e7fd9aab7a44ca1b7692b2adfeb2602&zoom=${newZoom}&type=${layerType}`)
+                    fetch(`http://localhost:8000/get_all_journey/?bbox=${newBbox}&key=5cc87b12d7c5370001c1d6559e7fd9aab7a44ca1b7692b2adfeb2602&zoom=${newZoom}&type=${layerType}`)
                         .then(response => response.json())
                         .then((fetchedFeatures) => {
                             const wktOptions = {
