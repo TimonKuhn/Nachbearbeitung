@@ -19,6 +19,10 @@ WFS läuft im QGis test. Im Geoserver nicht. Über die Netzwerkdiagnose wurde in
 Aus einem nicht herausgefundenen Grund kann ich die in QGIS und im Browser funktionierende GetCapabilities URL zwar in der erstellung des Datastore angeben, im Log des Errors beim Preview kommt jedoch heraus, dass es eine andere url abfragt.
 
 In der Layerdefinition kann definiert werden, dass die Koordinaten von LV95 auf Web-Mercator Projeziert werden sollen.
+So läuft der WMS nun (auch in QGIS), eine  Beispielabfrage im Browser ist hiermit möglich: Wichtigstes Learning war hierbei, dass der Layername vor allem über den Workspace definiert wird!
+http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256&srs=EPSG:3857&format=image/png
+
+
 
 ???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
 
@@ -28,11 +32,16 @@ In der Layerdefinition kann definiert werden, dass die Koordinaten von LV95 auf 
 Pipeline ist nun:
 Extern (Stadt Bern) -> Geoserver (mit Transformation) -> Backend -> Frontend
 
+Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
+http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
+
+
 !!!! reset backend auf stand vor letzer anpassung, da koordinatentransformation jetzt im geoserver !!!
 
 Bestehen bleibt die Pipline der bisherige API's:
 geOps -> Backend -> Frontend
 Leider funktioniert dieser nicht mehr da die API unseren Zugrif nicht mehr gestattet.
+Auch mit einem neuen API-Key funktioniert diese API leider nicht mehr für das Projekt, der Code läuft soweit.
 
 
 5.) Integration im Frontend
@@ -40,6 +49,9 @@ Leider funktioniert dieser nicht mehr da die API unseren Zugrif nicht mehr gesta
 npm install gibt warnings und npm run gibt macht nicht was man benötigt. So kann das App nicht lokal getestet werden.
 Das Problem lag am Pfad des Repos im Onedrive-Ordner. Nach einer Verschiebung auf ein tieferes Ordnerlevel ohne Leerschläge gibt es keine Probleme mehr, das Frontend zu starten.
 
+Das Frontend könnte auf die bisherigen, von GeOps gespiessenen API's zugreifen, würden diese nicht blockiert werden. 
+
+Stand jetzt funktioniert die Abfrage vom eigenen WMS im Backend noch nicht.
 
 
 

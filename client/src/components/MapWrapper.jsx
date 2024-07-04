@@ -14,6 +14,8 @@ import CheckBoxLayers from './Layers';
 import BackgroundButton from './backgroundButton';
 import Searchbar from './Searchbar';
 import * as olProj from 'ol/proj';
+import axios from 'axios';
+
 
 const MapWrapper = forwardRef((props, ref) => {
     const [map, setMap] = useState();
@@ -159,30 +161,73 @@ const MapWrapper = forwardRef((props, ref) => {
     }, [layerVisibility]);
 
     const fetchFeatures = () => {
+        console.log('Fetching features...');
         if (featuresLayer) {
             const currentMap = mapRef.current;
             const view = currentMap.getView();
             const extent = view.calculateExtent(currentMap.getSize());
             const newBbox = extent.map(coord => Math.round(coord)).join(',');
             const newZoom = Math.round(view.getZoom());
-
+    
             Object.keys(layerVisibility).forEach((layerType) => {
-                if (layerVisibility[layerType]) {
-                    console.log(`Fetching data for layer: ${layerType}`);
-                    fetch(`http://localhost:8000/get_all_journey/?bbox=${newBbox}&key=5cc87b12d7c5370001c1d6559e7fd9aab7a44ca1b7692b2adfeb2602&zoom=${newZoom}&type=${layerType}`)
-                        .then(response => response.json())
-                        .then((fetchedFeatures) => {
-                            const wktOptions = {
-                                dataProjection: 'EPSG:3857',
-                                featureProjection: 'EPSG:3857'
-                            };
-                            const parsedFeatures = new GeoJSON().readFeatures(fetchedFeatures, wktOptions);
-                            const source = featuresLayer.getSource();
-                            console.log(`Adding features for layer: ${layerType}`, parsedFeatures);
-                            source.addFeatures(parsedFeatures.filter(feature => feature.get('type') === layerType));
-                        })
-                        .catch(error => console.error('Error fetching data:', error));
-                } else {
+                // Immer die WMS-Abfrage ausführen
+                console.log(`Fetching data for layer: ${layerType}`);
+    
+                // Bisherige Funktionalität beibehalten
+                fetch(`http://localhost:8000/get_all_journey/?bbox=${newBbox}&key=5cc87b12d7c5370001c1d6559e7fd9aab7a44ca1b7692b2adfeb2602&zoom=${newZoom}&type=${layerType}`)
+                    .then(response => response.json())
+                    .then((fetchedFeatures) => {
+                        const wktOptions = {
+                            dataProjection: 'EPSG:3857',
+                            featureProjection: 'EPSG:3857'
+                        };
+                        const parsedFeatures = new GeoJSON().readFeatures(fetchedFeatures, wktOptions);
+                        const source = featuresLayer.getSource();
+                        console.log(`Adding features for layer: ${layerType}`, parsedFeatures);
+                        source.addFeatures(parsedFeatures.filter(feature => feature.get('type') === layerType));
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+    
+                // Neue WMS-Abfrage
+                axios.get('http://localhost:8000/wms/', {
+                    params: {
+                        layers: layerType,  // Sie können hier den tatsächlichen Layernamen anpassen
+                        bbox: newBbox,
+                        width: 768,
+                        height: 330
+                    },
+                    responseType: 'blob'
+                })
+                .then(response => {
+                    const url = URL.createObjectURL(new Blob([response.data]));
+                    // Hier können Sie das WMS-Bild verarbeiten, z.B. es auf der Karte anzeigen
+                    console.log(`WMS image URL for layer ${layerType}:`, url);
+
+                    // Überprüfen, ob bereits ein Layer für diesen Typ existiert
+                    const existingLayer = currentMap.getLayers().getArray().find(layer => layer.get('name') === `wms-${layerType}`);
+                    if (existingLayer) {
+                        // Aktualisieren Sie die Quelle des bestehenden Layers
+                        existingLayer.getSource().setUrl(url);
+                    } else {
+                        // Neuer Image Layer hinzufügen
+                        const imageLayer = new TileLayer({
+                            source: new TileWMS({
+                                url: url,
+                                params: {
+                                    'LAYERS': layerType,
+                                    'FORMAT': 'image/png'
+                                },
+                                projection: 'EPSG:3857'
+                            }),
+                            name: `wms-${layerType}`
+                        });
+                        currentMap.addLayer(imageLayer);
+                    }
+                })
+                .catch(error => console.error('Error fetching WMS data:', error));
+
+                // Features entfernen, wenn das Layer nicht sichtbar ist
+                if (!layerVisibility[layerType]) {
                     const source = featuresLayer.getSource();
                     const featuresToRemove = source.getFeatures().filter(feature => feature.get('type') === layerType);
                     console.log(`Removing features for layer: ${layerType}`, featuresToRemove);
@@ -191,6 +236,9 @@ const MapWrapper = forwardRef((props, ref) => {
             });
         }
     };
+
+
+
 
     useImperativeHandle(ref, () => ({
         getMap: () => mapRef.current
