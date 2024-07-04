@@ -16,7 +16,7 @@ const InfoPage = () => {
   const stationRefs = useRef([]);
 
   useEffect(() => {
-    fetch(`http://10.175.23.153:8000/get_info/?train_id=${trainId}&key=${key}`)
+    fetch(`http://localhost:8000/get_info/?train_id=${trainId}&key=${key}`)
       .then(response => response.json())
       .then(data => {
         console.log(data); // Log received data
