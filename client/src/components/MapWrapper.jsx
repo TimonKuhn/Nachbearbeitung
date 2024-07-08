@@ -205,6 +205,7 @@ const MapWrapper = forwardRef((props, ref) => {
 
                     // Überprüfen, ob bereits ein Layer für diesen Typ existiert
                     const existingLayer = currentMap.getLayers().getArray().find(layer => layer.get('name') === `wms-${layerType}`);
+                    currentMap.addLayer(createCustomWMSLayer(), { zIndex: Infinity });
                     if (existingLayer) {
                         // Aktualisieren Sie die Quelle des bestehenden Layers
                         existingLayer.getSource().setUrl(url);
@@ -268,6 +269,29 @@ const getBackgroundLayer = () => {
             return new TileLayer({ source: new OSM() });
     }
 };
+
+function createCustomWMSLayer() {
+    const baseUrl = 'http://localhost:8080/geoserver/wms';
+    const params = {
+        'LAYERS': 'ne:0', // Ersetze 'deinLayerName' mit dem tatsächlichen Namen deines Layers
+        'VERSION': '1.1.1',
+        'FORMAT': 'image/png',
+        'TILED': true,
+    };
+
+    const url = new URL(baseUrl);
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+    console.log('Custom WMS Layer created with URL:', url.toString());
+
+    return new TileLayer({
+        source: new TileWMS({
+            url: baseUrl,
+            params: params,
+            serverType: 'geoserver',
+        }),
+    });
+}
 
 // Funktion zum Abrufen des Layer-Namens
 const getLayerName = (mapType) => {

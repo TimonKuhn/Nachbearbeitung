@@ -1,9 +1,10 @@
 # Dokumentation Nacharbeit:
 Anmerkung vor dem Lesen: Im Edit-Modus sind die Linebreaks korrekt. Jeder Abschnitt ist in sich chronologisch, wobei jeweils der erste Satz dokumentiert wurde als die Problemsstellung aus sicht der Ausgangslage angegangen wurde und der letzte Satz jedes Abschnittes wurde nach der Problemlösung geschrieben. Die 6 Schritte geben soweit einen Überblick über die verschiedenen Arbeitsstränge, wobei Schritte 1,2 und 6 im vergleich klein waren, Schritte 3-5 dagegen waren herausforderungsvoll und wurden synchron gelöst.
 
-1.) Repo clonen und zur verfügung stellen
+## 1.) Repo clonen und zur verfügung stellen
 
-2.) Datensätze aussuchen: Ein WM(T)S und ein WFS, gewünscht wären sämmtliche ÖV-Linien und Haltestellen über die gesammte Schweiz. Leider gibt es solche Datensätze nicht. Deswegen wurde diese Funktionalität für Demo-Zwecke auf den Ballungsraum Bern beschränkt: 
+## 2.) Datensätze aussuchen: 
+Ein WM(T)S und ein WFS, gewünscht wären sämmtliche ÖV-Linien und Haltestellen über die gesammte Schweiz. Leider gibt es solche Datensätze nicht. Deswegen wurde diese Funktionalität für Demo-Zwecke auf den Ballungsraum Bern beschränkt: 
 https://opendata.swiss/de/dataset/ov-linien
 https://opendata.swiss/de/dataset/ov-haltestellen
 
@@ -13,7 +14,7 @@ https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
 https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS.
 Wie in Schritt 3 erwähnt, wurde
 
-3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
+## 3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
 
 ### WMS
 WMS läuft auf anhieb ohne Probleme.
@@ -37,7 +38,7 @@ Der GetCapabilities des Ursprunges: https://ch-osm-services.geodatasolutions.ch/
 Der GetCapabilities des Geoservers: http://localhost:8080/geoserver/wfs?request=GetCapabilities
 Mein Geoserver funktioniert: http://localhost:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=ne:magosm_bus_routes_line&outputFormat=application/json&srsname=EPSG:3857&bbox=812000,5900000,826000,5920000
 
-4.) Integration im Backend von WMS und WFS:
+## 4.) Integration im Backend von WMS und WFS:
 
 Pipeline ist nun:
 Extern (Stadt Bern) -> Geoserver (mit Transformation) -> Backend -> Frontend
@@ -50,14 +51,15 @@ Auch mit einem neuen API-Key funktioniert diese API leider nicht mehr für das P
 ### WMS
 
 Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
-http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
+getCapabilities: http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetCapabilities
+Beispielabfrage: http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
 
 ### WFS
 
-Die Implementation des WFS Dienstes im Backend ergab sich analog zum WMS sehr schnell und ohne weitere Hindernisse. Anzumerken ist hierbei möglicherweise, dass der Endpunkt nicht länger als eine Minute arbeiten darf, da er sonst geblockt wird. Das heisst die bbox ist dementsprechend klein zu wählen.
+Die Implementation des WFS Dienstes im Backend ergab sich analog zum WMS sehr schnell und ohne weitere Hindernisse. Anzumerken ist hierbei möglicherweise, dass der Endpunkt nicht länger als eine Minute arbeiten darf, da er sonst geblockt wird. Das heisst die bbox ist dementsprechend klein zu wählen. In gewissen Fällen geht es aber dennoch, also ist diese Linie keine harte.
+Beispielabfrage: http://localhost:8000/wfs/?bbox=827000,5930000,833000,5940000
 
-
-5.) Integration im Frontend
+## 5.) Integration im Frontend
 
 ### WMS
 
@@ -66,10 +68,14 @@ Das Problem lag am Pfad des Repos im Onedrive-Ordner. Nach einer Verschiebung au
 Das Frontend könnte auf die bisherigen, von GeOps gespiessenen API's zugreifen, würden diese nicht blockiert werden.
 Stand jetzt funktioniert die Abfrage vom eigenen WMS im Backend noch nicht.
 
+Eine neue Funktion createCustomWMSLayer wurde geschrieben um mit diesem call:
+currentMap.addLayer(createCustomWMSLayer(), { zIndex: Infinity });
+den WMS vom Backend abzurufen. Leider funktioniert das nicht auf anhieb. Es wurde versucht, mit Logging den Fehler zu eruieren. Die URL scheint defekt zu sein.
+
 ### WFS
 
 
-6.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
+## 6.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
 
 
 
