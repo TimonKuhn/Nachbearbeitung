@@ -1,4 +1,5 @@
 # Dokumentation Nacharbeit:
+Anmerkung vor dem Lesen: Im Edit-Modus sind die Linebreaks korrekt. Jeder Abschnitt ist in sich chronologisch, wobei jeweils der erste Satz dokumentiert wurde als die Problemsstellung aus sicht der Ausgangslage angegangen wurde und der letzte Satz jedes Abschnittes wurde nach der Problemlösung geschrieben. Die 6 Schritte geben soweit einen Überblick über die verschiedenen Arbeitsstränge, wobei Schritte 1,2 und 6 im vergleich klein waren, Schritte 3-5 dagegen waren herausforderungsvoll und wurden synchron gelöst.
 
 1.) Repo clonen und zur verfügung stellen
 
@@ -9,10 +10,12 @@ https://opendata.swiss/de/dataset/ov-haltestellen
 Die beiden Services wurden in QGis testweise eingebunden, wie in "Datenvisualisierung.png" zu sehen ist:
 ![Datenvisualisierung](Datenvisualisierung.PNG)
 https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
-https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS
+https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS.
+Wie in Schritt 3 erwähnt, wurde
 
 3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
 
+### WMS
 WMS läuft auf anhieb ohne Probleme.
 WFS läuft im QGis test. Im Geoserver nicht. Über die Netzwerkdiagnose wurde in QGis der Link zu den GetCapabilities herausgefunden, welcher ansonsten versteckt war. Leider wieder kein Erfolg.
 
@@ -22,41 +25,56 @@ In der Layerdefinition kann definiert werden, dass die Koordinaten von LV95 auf 
 So läuft der WMS nun (auch in QGIS), eine  Beispielabfrage im Browser ist hiermit möglich: Wichtigstes Learning war hierbei, dass der Layername vor allem über den Workspace definiert wird!
 http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256&srs=EPSG:3857&format=image/png
 
+### WFS
+Der WFS lief lange nicht auf dem Geoserver. Schlussendlich konnte ich die getCapabilities abrufen:
+http://localhost:8080/geoserver/wfs?request=GetCapabilities
+Im Nachhinein habe ich festgestellt, dass ich auf den Vorlagen der Geoserver-Übung aufgebaut habe, wesshalb noch viele Artefakte übrig sind. 
+Auch hier bekomme ich ständig Errorcodes 403 (Forbidden). Das würd heissen, dass der Geoserver den WFS der Stadt Bern nichz beziehen darf.
+In QGis funktioniert das hinzufügen wunderbar, desshalb verstehe ich nicht, wieso das mit dem Geoserver nicht funktionieren sollte...
 
-
-???leider habe ich nicht die Berechtigung, mit dem Geoserver auf den WFS der Stadt Bern zuzugreifen. ???
-
+Es wurde nun entschieden, den WFS Anbieter zu wechseln, was auch auf anhieb funktionierte:
+Der GetCapabilities des Ursprunges: https://ch-osm-services.geodatasolutions.ch/geoserver/ows?service=wfs&version=2.0.0&request=GetCapabilities
+Der GetCapabilities des Geoservers: http://localhost:8080/geoserver/wfs?request=GetCapabilities
+Mein Geoserver funktioniert: http://localhost:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=ne:magosm_bus_routes_line&outputFormat=application/json&srsname=EPSG:3857&bbox=812000,5900000,826000,5920000
 
 4.) Integration im Backend von WMS und WFS:
 
 Pipeline ist nun:
 Extern (Stadt Bern) -> Geoserver (mit Transformation) -> Backend -> Frontend
 
-Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
-http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
-
-
-!!!! reset backend auf stand vor letzer anpassung, da koordinatentransformation jetzt im geoserver !!!
-
 Bestehen bleibt die Pipline der bisherige API's:
 geOps -> Backend -> Frontend
 Leider funktioniert dieser nicht mehr da die API unseren Zugrif nicht mehr gestattet.
 Auch mit einem neuen API-Key funktioniert diese API leider nicht mehr für das Projekt, der Code läuft soweit.
 
+### WMS
+
+Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
+http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
+
+### WFS
+
+Die Implementation des WFS Dienstes im Backend ergab sich analog zum WMS sehr schnell und ohne weitere Hindernisse. Anzumerken ist hierbei möglicherweise, dass der Endpunkt nicht länger als eine Minute arbeiten darf, da er sonst geblockt wird. Das heisst die bbox ist dementsprechend klein zu wählen.
+
 
 5.) Integration im Frontend
 
+### WMS
+
 npm install gibt warnings und npm run gibt macht nicht was man benötigt. So kann das App nicht lokal getestet werden.
 Das Problem lag am Pfad des Repos im Onedrive-Ordner. Nach einer Verschiebung auf ein tieferes Ordnerlevel ohne Leerschläge gibt es keine Probleme mehr, das Frontend zu starten.
-
-Das Frontend könnte auf die bisherigen, von GeOps gespiessenen API's zugreifen, würden diese nicht blockiert werden. 
-
+Das Frontend könnte auf die bisherigen, von GeOps gespiessenen API's zugreifen, würden diese nicht blockiert werden.
 Stand jetzt funktioniert die Abfrage vom eigenen WMS im Backend noch nicht.
 
+### WFS
+
+
+6.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
 
 
 
-# Bestehende Dokumentation
+
+# Bestehende Dokumentation bei erster Abgabe
 # ÖV-Now
 
 ## Beschreibung

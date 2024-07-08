@@ -244,94 +244,155 @@ const MapWrapper = forwardRef((props, ref) => {
         getMap: () => mapRef.current
     }));
 
-    const getBackgroundLayer = () => {
-        switch (backgroundMap) {
-            case 'osm':
-                return new TileLayer({ source: new OSM() });
-            case 'Landeskarte-farbe':
-            case 'Landeskarte-grau':
-            case 'Luftbild':
-                return new TileLayer({
-                    source: new TileWMS({
-                        url: 'https://wms.geo.admin.ch/',
-                        crossOrigin: 'anonymous',
-                        attributions: '© <a href="http://www.geo.admin.ch/internet/geoportal/en/home.html">SWISSIMAGE / geo.admin.ch</a>',
-                        projection: 'EPSG:3857',
-                        params: {
-                            'LAYERS': getLayerName(backgroundMap),
-                            'FORMAT': 'image/jpeg'
-                        },
-                    })
-                });
-            default:
-                return new TileLayer({ source: new OSM() });
-        }
-    };
+// Funktion zum Abrufen des Hintergrund-Layers
+const getBackgroundLayer = () => {
+    switch (backgroundMap) {
+        case 'osm':
+            return new TileLayer({ source: new OSM() });
+        case 'Landeskarte-farbe':
+        case 'Landeskarte-grau':
+        case 'Luftbild':
+            return new TileLayer({
+                source: new TileWMS({
+                    url: 'https://wms.geo.admin.ch/',
+                    crossOrigin: 'anonymous',
+                    attributions: '© <a href="http://www.geo.admin.ch/internet/geoportal/en/home.html">SWISSIMAGE / geo.admin.ch</a>',
+                    projection: 'EPSG:3857',
+                    params: {
+                        'LAYERS': getLayerName(backgroundMap),
+                        'FORMAT': 'image/jpeg'
+                    },
+                })
+            });
+        default:
+            return new TileLayer({ source: new OSM() });
+    }
+};
 
-    const getLayerName = (mapType) => {
+// Funktion zum Abrufen des Layer-Namens
+const getLayerName = (mapType) => {
+    switch (mapType) {
+        case 'Landeskarte-farbe':
+            return 'ch.swisstopo.pixelkarte-farbe';
+        case 'Landeskarte-grau':
+            return 'ch.swisstopo.pixelkarte-grau';
+        case 'Luftbild':
+            return 'ch.swisstopo.images-swissimage';
+        default:
+            return '';
+    }
+};
+
+// Funktion zum Abrufen des Hintergrund-Ausdehnung
+const getBackgroundExtent = () => {
+    return [506943.5, 5652213.5, 1301728.5, 6191092];
+};
+
+// Suchfunktion
+const handleSearch = (stop) => {
+    if (stop) {
+        const view = map.getView();
+        const lonLat = [stop.lon, stop.lat];
+        const transformedCoords = olProj.fromLonLat(lonLat, 'EPSG:3857');
+        view.setCenter(transformedCoords);
+        view.setZoom(16);
+    } else {
+        alert('Stop not found.');
+    }
+};
+
+// Funktion zum Ändern des Hintergrunds
+const handleBackgroundChange = (mapType) => {
+    setBackgroundMap(mapType);
+};
+
+// Funktion zum Abrufen von Geodaten
+const fetchGeoData = async (mapType) => {
+    try {
+        let geoServiceUrl;
         switch (mapType) {
             case 'Landeskarte-farbe':
-                return 'ch.swisstopo.pixelkarte-farbe';
+                geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.swisstlm3d-wanderwege';
+                break;
             case 'Landeskarte-grau':
-                return 'ch.swisstopo.pixelkarte-grau';
+                geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.pixelkarte-grau';
+                break;
             case 'Luftbild':
-                return 'ch.swisstopo.images-swissimage';
+                geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.swissimage-product';
+                break;
+            case 'osm':
+                console.log('OpenStreetMap è un servizio basato su vettori. Non è richiesta una chiamata separata per i dati geoservizi.');
+                return;
             default:
-                return '';
+                console.error('Tipo di mappa non riconosciuto:', mapType);
+                return;
         }
-    };
 
-    const getBackgroundExtent = () => {
-        return [506943.5, 5652213.5, 1301728.5, 6191092];
-    };
-
-    const handleSearch = (stop) => {
-        if (stop) {
-            const view = map.getView();
-            const lonLat = [stop.lon, stop.lat];
-            const transformedCoords = olProj.fromLonLat(lonLat, 'EPSG:3857');
-            view.setCenter(transformedCoords);
-            view.setZoom(16);
-        } else {
-            alert('Stop not found.');
+        const response = await fetch(geoServiceUrl);
+        if (!response.ok) {
+            throw new Error('Errore nel recupero dei dati geoservizi');
         }
+        console.log("Dati geoservizi recuperati con successo per la mappa:", mapType);
+
+    } catch (error) {
+        console.error('Errore durante il recupero dei dati geoservizi:', error.message);
+    }
+};
+
+// Funktion zum Abrufen des eigenen WMS-Layers
+const getCustomWmsLayer = () => {
+    return new TileLayer({
+        source: new TileWMS({
+            url: 'http://localhost:8000/wms/',
+            crossOrigin: 'anonymous',
+            params: {
+                'LAYERS': 'ne:0',
+                'BBOX': '821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049',
+                'WIDTH': 256,
+                'HEIGHT': 256,
+                'FORMAT': 'image/png'
+            },
+        })
+    });
+};
+
+// Initialisierung der Karte
+const initializeMap = () => {
+    const backgroundLayer = getBackgroundLayer();
+    const customWmsLayer = getCustomWmsLayer();
+
+    const map = new Map({
+        target: 'map',
+        layers: [
+            backgroundLayer,
+            customWmsLayer
+        ],
+        view: new View({
+            center: olProj.fromLonLat([8.231, 46.798], 'EPSG:3857'),
+            zoom: 8
+        })
+    });
+
+    // Hintergrund-Layer wechseln
+    const switchBackgroundLayer = (mapType) => {
+        map.removeLayer(backgroundLayer);
+        const newBackgroundLayer = getBackgroundLayer(mapType);
+        map.getLayers().insertAt(0, newBackgroundLayer);
     };
 
-    const handleBackgroundChange = (mapType) => {
-        setBackgroundMap(mapType);
-    };
+    // Ereignis für den Wechsel des Hintergrunds
+    document.getElementById('backgroundSelect').addEventListener('change', (event) => {
+        const selectedMapType = event.target.value;
+        handleBackgroundChange(selectedMapType);
+        switchBackgroundLayer(selectedMapType);
+    });
+};
 
-    const fetchGeoData = async (mapType) => {
-        try {
-            let geoServiceUrl;
-            switch (mapType) {
-                case 'Landeskarte-farbe':
-                    geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.swisstlm3d-wanderwege';
-                    break;
-                case 'Landeskarte-grau':
-                    geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.pixelkarte-grau';
-                    break;
-                case 'Luftbild':
-                    geoServiceUrl = 'https://wms.geo.admin.ch/?LAYERS=ch.swisstopo.swissimage-product';
-                    break;
-                case 'osm':
-                    console.log('OpenStreetMap è un servizio basato su vettori. Non è richiesta una chiamata separata per i dati geoservizi.');
-                    return;
-                default:
-                    console.error('Tipo di mappa non riconosciuto:', mapType);
-                    return;
-            }
+// Sicherstellen, dass das DOM vollständig geladen ist, bevor die Karte initialisiert wird
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMap();
+});
 
-            const response = await fetch(geoServiceUrl);
-            if (!response.ok) {
-                throw new Error('Errore nel recupero dei dati geoservizi');
-            }
-            console.log("Dati geoservizi recuperati con successo per la mappa:", mapType);
-
-        } catch (error) {
-            console.error('Errore durante il recupero dei dati geoservizi:', error.message);
-        }
-    };
 
     useEffect(() => {
         if (map) {
