@@ -12,7 +12,8 @@ Die beiden Services wurden in QGis testweise eingebunden, wie in "Datenvisualisi
 ![Datenvisualisierung](Datenvisualisierung.PNG)
 https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
 https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS.
-Wie in Schritt 3 erwähnt, wurde
+Wie in Schritt 3 erwähnt, wurde der Anbieter für den WFS gewechselt, da dieser der Stadt Bern aus berechtigungsproblemen nicht verwendet werden konnte.
+
 
 ## 3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
 
@@ -37,6 +38,7 @@ Es wurde nun entschieden, den WFS Anbieter zu wechseln, was auch auf anhieb funk
 Der GetCapabilities des Ursprunges: https://ch-osm-services.geodatasolutions.ch/geoserver/ows?service=wfs&version=2.0.0&request=GetCapabilities
 Der GetCapabilities des Geoservers: http://localhost:8080/geoserver/wfs?request=GetCapabilities
 Mein Geoserver funktioniert: http://localhost:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=ne:magosm_bus_routes_line&outputFormat=application/json&srsname=EPSG:3857&bbox=812000,5900000,826000,5920000
+Um die Effizienz im Produkt besser zu machen, wurde zusätzlih zu den Buslinien die Eisenbahnlinien publiziert.
 
 ## 4.) Integration im Backend von WMS und WFS:
 
@@ -53,11 +55,12 @@ Auch mit einem neuen API-Key funktioniert diese API leider nicht mehr für das P
 Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
 getCapabilities: http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetCapabilities
 Beispielabfrage: http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
+Um die Effizienz im Produkt besser zu machen, wurde von den Buslinien zu den Eisenbahnlinien gewechselt.
 
 ### WFS
 
 Die Implementation des WFS Dienstes im Backend ergab sich analog zum WMS sehr schnell und ohne weitere Hindernisse. Anzumerken ist hierbei möglicherweise, dass der Endpunkt nicht länger als eine Minute arbeiten darf, da er sonst geblockt wird. Das heisst die bbox ist dementsprechend klein zu wählen. In gewissen Fällen geht es aber dennoch, also ist diese Linie keine harte.
-Beispielabfrage: http://localhost:8000/wfs/?bbox=827000,5930000,833000,5940000
+Beispielabfrage: http://localhost:8000/wfs/?bbox=827000,5930000,830000,5936000
 
 ## 5.) Integration im Frontend
 
@@ -71,8 +74,11 @@ Stand jetzt funktioniert die Abfrage vom eigenen WMS im Backend noch nicht.
 Eine neue Funktion createCustomWMSLayer wurde geschrieben um mit diesem call:
 currentMap.addLayer(createCustomWMSLayer(), { zIndex: Infinity });
 den WMS vom Backend abzurufen. Leider funktioniert das nicht auf anhieb. Es wurde versucht, mit Logging den Fehler zu eruieren. Die URL scheint defekt zu sein.
+Beim neuen Verwenden funktionierte es plötzlich, aber erst nach einem Update auf der Map über die Checkboxen.
 
 ### WFS
+
+initializeMap wurde angepasst, dass die neue const createWfsLayer aufgerufen werden sollte, leider zeigt sich nichts im Test und auch in der Konsole sehe ich nirgends ein Log, das die Funktion ausgeführt wurde.
 
 
 ## 6.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter

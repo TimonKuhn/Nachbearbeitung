@@ -16,6 +16,9 @@ import Searchbar from './Searchbar';
 import * as olProj from 'ol/proj';
 import axios from 'axios';
 
+import { bbox as bboxStrategy } from 'ol/loadingstrategy';
+
+
 
 const MapWrapper = forwardRef((props, ref) => {
     const [map, setMap] = useState();
@@ -293,6 +296,27 @@ function createCustomWMSLayer() {
     });
 }
 
+
+
+// Funktion zum Erstellen des WFS Layers
+const createWfsLayer = () => {
+    console.log('Creating WFS Layer...XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    const wfsUrl = 'http://localhost:8000/wfs/';
+    const vectorSource = new VectorSource({
+        format: new GeoJSON(),
+        url: function(extent) {
+            const bbox = extent.join(',');
+            return `${wfsUrl}?bbox=${bbox}`;
+        },
+        strategy: bboxStrategy,
+    });
+
+    return new VectorLayer({
+        source: vectorSource,
+    });
+};
+
+
 // Funktion zum Abrufen des Layer-Namens
 const getLayerName = (mapType) => {
     switch (mapType) {
@@ -384,10 +408,12 @@ const getCustomWmsLayer = () => {
 const initializeMap = () => {
     const backgroundLayer = getBackgroundLayer();
     const customWmsLayer = getCustomWmsLayer();
+    const wfsLayer = createWfsLayer(); // WFS Layer erstellen
 
     const map = new Map({
         target: 'map',
         layers: [
+            wfsLayer, // WFS Layer zur Karte hinzufügen
             backgroundLayer,
             customWmsLayer
         ],

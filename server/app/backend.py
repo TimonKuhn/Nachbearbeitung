@@ -92,7 +92,7 @@ async def get_wfs_data(
         "service": "WFS",
         "version": "1.1.0",
         "request": "GetFeature",
-        "typeName": "ne:magosm_bus_routes_line",
+        "typeName": "ne:magosm_railways_line",
         "outputFormat": "application/json",
         "srsname": "EPSG:3857",
         "bbox": bbox
