@@ -1,5 +1,5 @@
 # Dokumentation Nacharbeit:
-Anmerkung vor dem Lesen: Im Edit-Modus sind die Linebreaks korrekt. Jeder Abschnitt ist in sich chronologisch, wobei jeweils der erste Satz dokumentiert wurde als die Problemsstellung aus sicht der Ausgangslage angegangen wurde und der letzte Satz jedes Abschnittes wurde nach der Problemlösung geschrieben. Die 6 Schritte geben soweit einen Überblick über die verschiedenen Arbeitsstränge, wobei Schritte 1,2 und 6 im vergleich klein waren, Schritte 3-5 dagegen waren herausforderungsvoll und wurden synchron gelöst.
+Anmerkung vor dem Lesen: Im Edit-Modus sind die Linebreaks korrekt. Jeder Abschnitt ist in sich chronologisch, wobei jeweils der erste Satz dokumentiert wurde als die Problemsstellung aus sicht der Ausgangslage angegangen wurde und der letzte Satz jedes Abschnittes wurde nach der Problemlösung geschrieben. Die 6 Schritte geben soweit einen Überblick über die verschiedenen Arbeitsstränge, wobei Schritte 1,2, 6 und 7 im vergleich klein waren, Schritte 3-5 dagegen waren herausforderungsvoll und wurden synchron gelöst.
 
 ## 1.) Repo clonen und zur verfügung stellen
 
@@ -80,8 +80,30 @@ Beim neuen Verwenden funktionierte es plötzlich, aber erst nach einem Update au
 
 initializeMap wurde angepasst, dass die neue const createWfsLayer aufgerufen werden sollte, leider zeigt sich nichts im Test und auch in der Konsole sehe ich nirgends ein Log, das die Funktion ausgeführt wurde.
 
+## 6.) Reflexion der Änderungen:
 
-## 6.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
+Ernüchternderweise hat sich in der Nacharbeit herausgestellt, dass ich mit meiner Konfiguration von Code, Key, PC etc. keinen Zugriff mehr habe zur GeOps-API. Deshalb musste auf die eigentliche Funktionalität der App leider verzichtet werden. Somit war die Nacharbeit eine eher trockene Übung um zu zeigen, dass die gefordeten Kompetenzen angewendet werden konnten.
+
+Die Überarbeitung war insofern ein anspruchvolles, eigenständiges Projekt, da es für mich Neuland war, ein Testat nicht zu erhalten. Somit ist mit der Gefährdung des Studienabschlusses ein zusätzlicher psychischer udn emotionaler Stress auf meinen Schultern gelandet, der mir zwischen Hochzeits-, Ehe- und "Leben-danach"-Vorbereitungen nicht eigentlich gefehlt hat. Allerdings war schwarz auf weiss klar, dass dieses Projekt, was im Semester entstand, aufgrund diversen Punkten nicht Testatwürdig war.
+
+Nach nun 18-20 Stunden nacharbeit habe ich einiges nochmals gelernt. Geoserver konfigurieren und Python-backend konnte ich zwar schon, aber durch die Erweiterungen in dieser Überarbeitung habe ich meine Kenntnisse gefestigt. Meine grosse Schwäche liegt in JavaScript. Ich habe den Dreh bei M. Christen nie ganz herausgekriegt und deswegen auch im Semester die Implementation der Backends, die Abfrage der API, die Architektur zwischen Frontend & Backend sowie alles was mit dem Raspi zu tun hat übernommen. Also alles, was nicht JSX ist. Das wurde nun natürlich zum Verhängnis, wo ich das Frontend so anpassen wollte, dass es die zusätzlichen Layer anzeigt. Auch ChatGPT und Copilot konnten mit hierbei nicht wirklich helfen.
+
+Dennoch bin ich schlussendlich zu einem Ergebnis gekommen, welches die Anforderungen erfüllt. Mir ist klar geworden, dass Softwareentwicklung ein interesantes Gebiet ist, aber für meine Interessen und Kompetenzen nicht als Hauptberufsfeld infrage kommen.
+
+## 7.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
+
+Mit dem Schreiben dieser Zeilen Bestätige ich:
+- Dass ich die Überarbeitung selbständig in Einzelarbeit durchgeführt habe.
+- Vor KW32 die Überarbeitung abgegeben habe.
+- Die Überarbeitung in diesem Readme passend dokumentiert habe.
+- Die im Mail genannten, zu überarbeitenden Punkte nach bestem Wissen und Gewissen implementiert habe. Hierbei habe ich:
+* mehrere unterschiedliche Dienste im Geoserver hinzugefügt, bis ein WMS und ein WFS funktionierte
+* Diesen WMS und WFS in einem Backend-Endpoint eingegliedert
+* Die Daten im Frontend visualisert.
+* Alle Codes so gestalltet, dass sie in der lokalen Umgebung verwendbar sind.
+* Die angeforderten Diagramme überarbeitet und im Readme eingebunden.
+* Screenshots des Geoservers hinzugefügt.
+* ein Kapitel der Änderungen und Verbesserungen gewidmet.
 
 
 
