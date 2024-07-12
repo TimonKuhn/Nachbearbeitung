@@ -11,6 +11,11 @@ __pycache__/
 client/node_modules
 client/.vscode
 
+# client2
+client/node_modules
+client/.vscode
+
+
 # testing
 client/coverage
 
