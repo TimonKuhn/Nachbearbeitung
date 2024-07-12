@@ -62,8 +62,9 @@ const sperrungenLayer = new TileLayer({
 const neuerWmsLayerSource = new TileWMS({
   url: `http://localhost:8000/wms/`,
   params: {
-    'LAYERS': 'ne:0',
-    'FORMAT': 'image/png',
+    'layers': 'ne:0',
+    'format': 'image/png', // beachte: 'format' statt 'FORMAT'
+    'transparent': true  // Parameter für Transparenz
   }
 });
 
@@ -98,12 +99,15 @@ view.on('change:center', updateWmsLayerParams);
 function updateWmsLayerParams() {
   const extent = view.calculateExtent(map.getSize());
   const bbox = extent.join(',');
-  
+
   // Logging nur, wenn BBOX sich ändert
   console.log('Updating WMS layer BBOX:', bbox);
 
+  // Die WMS-Parameter im gewünschten Format aktualisieren
   neuerWmsLayerSource.updateParams({
-    'BBOX': bbox
+    'bbox': bbox,
+    'width': map.getSize()[0],
+    'height': map.getSize()[1]
   });
 }
 

@@ -89,7 +89,9 @@ Es wurde geschaut dass die minimalsten Funktionen, die im Client noch giengen au
 
 ### WMS
 
-Da nun der ganze Rahmen einfach, übersichtlich und verständlich ist, konnte der WMS hinzugefügt werden. Ein Einfrieren konnte mit den Funktionen "params" und "updateparams" gelöst werden
+Da nun der ganze Rahmen einfach, übersichtlich und verständlich ist, konnte der WMS hinzugefügt werden. Ein Einfrieren konnte mit den Funktionen "params" und "updateparams" gelöst werden.
+
+Leider funktioniert es nach wie vor nicht. Die Daten werden zwar geladen und visualisert, aber erstens kann ich den hintergrund nicht auf transparent setzen, da der Style im geoserver nicht erkannt wird. Ausserdem ist jeder einzelne tyle das gesammte bild, was unnütz ist.
 
 
 

@@ -124,7 +124,8 @@ def get_wms(layers: str = Query(..., alias="layers"),
         "width": width,
         "height": height,
         "srs": "EPSG:3857",
-        "format": "image/png"
+        "format": "image/png",
+        "transparent": "true"  # Ensure the background is transparent
     }
 
     try:
@@ -134,7 +135,6 @@ def get_wms(layers: str = Query(..., alias="layers"),
         raise HTTPException(status_code=500, detail=f"Error accessing GeoServer: {str(e)}")
     
     return StreamingResponse(response.iter_content(chunk_size=128), media_type="image/png")
-
 
 
 if __name__ == "__main__":

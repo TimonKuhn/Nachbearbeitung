@@ -87722,8 +87722,10 @@ var sperrungenLayer = new _layer.Tile({
 var neuerWmsLayerSource = new _source.TileWMS({
   url: "http://localhost:8000/wms/",
   params: {
-    'LAYERS': 'ne:0',
-    'FORMAT': 'image/png'
+    'layers': 'ne:0',
+    'format': 'image/png',
+    // beachte: 'format' statt 'FORMAT'
+    'transparent': true // Parameter für Transparenz
   }
 });
 var neuerWmsLayer = new _layer.Tile({
@@ -87756,8 +87758,12 @@ function updateWmsLayerParams() {
 
   // Logging nur, wenn BBOX sich ändert
   console.log('Updating WMS layer BBOX:', bbox);
+
+  // Die WMS-Parameter im gewünschten Format aktualisieren
   neuerWmsLayerSource.updateParams({
-    'BBOX': bbox
+    'bbox': bbox,
+    'width': map.getSize()[0],
+    'height': map.getSize()[1]
   });
 }
 
