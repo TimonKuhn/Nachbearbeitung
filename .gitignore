@@ -12,9 +12,19 @@ client/node_modules
 client/.vscode
 
 # client2
-client/node_modules
-client/.vscode
+client2/node_modules
+client2/.vscode
 
+# testing
+client2/coverage
+
+# production
+client2/build
+
+# dependencies
+client2/node_modules
+.pnp
+.pnp.js
 
 # testing
 client/coverage

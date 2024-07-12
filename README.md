@@ -53,7 +53,6 @@ Auch mit einem neuen API-Key funktioniert diese API leider nicht mehr für das P
 ### WMS
 
 Nachdem der WMS Dienst auf dem Geoserver funktionierte, konnte er auch im Backend zum laufen gebracht werden. Wenn das Backend auf Localhost:8000 läuft funktioniert folgende Abfrage:
-getCapabilities: http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetCapabilities
 Beispielabfrage: http://localhost:8000/wms/?layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256
 Um die Effizienz im Produkt besser zu machen, wurde von den Buslinien zu den Eisenbahnlinien gewechselt.
 
@@ -84,11 +83,13 @@ Auf Hinweis von E.Eberlein habe ich mich an meinen Komillitonen T.v.Felten gewan
 
 ## 5.1) Neue React-App als Frontend.
 
-Es wird eine React App geschaffen, welche im Hintergrund das Swissimage darstellen soll und darauf den WMS und WFS abbilden soll.
+Es wird eine React App im Client2 geschaffen, welche im Hintergrund das Swissimage darstellen soll und darauf den WMS und WFS abbilden soll.
+Dabei war wichtig, das gitignore zu updaten!
+Es wurde geschaut dass die minimalsten Funktionen, die im Client noch giengen auch im Client2 vorhanden sind. Das wäre das panning & zooming, sowie die Layerwahl.
 
 ### WMS
 
-
+Da nun der ganze Rahmen einfach, übersichtlich und verständlich ist, konnte der WMS hinzugefügt werden. Ein Einfrieren konnte mit den Funktionen "params" und "updateparams" gelöst werden
 
 
 
