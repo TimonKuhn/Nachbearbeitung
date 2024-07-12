@@ -80,6 +80,29 @@ Beim neuen Verwenden funktionierte es plötzlich, aber erst nach einem Update au
 
 initializeMap wurde angepasst, dass die neue const createWfsLayer aufgerufen werden sollte, leider zeigt sich nichts im Test und auch in der Konsole sehe ich nirgends ein Log, das die Funktion ausgeführt wurde.
 
+Auf Hinweis von E.Eberlein habe ich mich an meinen Komillitonen T.v.Felten gewandt. Er hat mir versichert, dass es fast aussichtslos ist den "spaghetti-code" des Frontends so anzupassen, dass es ich die Daten visualisieren kann. Er Empfahl, eine neue React-App aufzusetzen, in der das im Mail von P.Bereuter definierte Ziel der Visualisuerung umsetzbar ist. Ein grosser Verlust ist dies nicht, da die Funktionalität der App über den Verlust der GeOps API ja onehin schon verloren war.
+
+## 5.1) Neue React-App als Frontend.
+
+Es wird eine React App geschaffen, welche im Hintergrund das Swissimage darstellen soll und darauf den WMS und WFS abbilden soll.
+
+### WMS
+
+
+
+
+
+### WFS
+
+
+
+
+
+react app
+darstellung wfs wms
+zerst struktur
+openlayers - leaflet
+
 ## 6.) Reflexion der Änderungen:
 
 Ernüchternderweise hat sich in der Nacharbeit herausgestellt, dass ich mit meiner Konfiguration von Code, Key, PC etc. keinen Zugriff mehr habe zur GeOps-API. Deshalb musste auf die eigentliche Funktionalität der App leider verzichtet werden. Somit war die Nacharbeit eine eher trockene Übung um zu zeigen, dass die gefordeten Kompetenzen angewendet werden konnten.
@@ -93,7 +116,7 @@ Dennoch bin ich schlussendlich zu einem Ergebnis gekommen, welches die Anforderu
 ## 7.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
 
 Mit dem Schreiben dieser Zeilen Bestätige ich:
-- Dass ich die Überarbeitung selbständig in Einzelarbeit durchgeführt habe.
+- Dass ich die Überarbeitung selbständig in Einzelarbeit durchgeführt habe. Erst auf Aufforderung von S.Ebrelein habe ich meine Komillitonen um Rat gefragt bezüglich meinen Frontend-Problemen.
 - Vor KW32 die Überarbeitung abgegeben habe.
 - Die Überarbeitung in diesem Readme passend dokumentiert habe.
 - Die im Mail genannten, zu überarbeitenden Punkte nach bestem Wissen und Gewissen implementiert habe. Hierbei habe ich:
@@ -104,8 +127,6 @@ Mit dem Schreiben dieser Zeilen Bestätige ich:
 * Die angeforderten Diagramme überarbeitet und im Readme eingebunden.
 * Screenshots des Geoservers hinzugefügt.
 * ein Kapitel der Änderungen und Verbesserungen gewidmet.
-
-
 
 
 # Bestehende Dokumentation bei erster Abgabe

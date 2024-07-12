@@ -171,11 +171,11 @@ const MapWrapper = forwardRef((props, ref) => {
             const extent = view.calculateExtent(currentMap.getSize());
             const newBbox = extent.map(coord => Math.round(coord)).join(',');
             const newZoom = Math.round(view.getZoom());
-    
+
             Object.keys(layerVisibility).forEach((layerType) => {
                 // Immer die WMS-Abfrage ausführen
                 console.log(`Fetching data for layer: ${layerType}`);
-    
+
                 // Bisherige Funktionalität beibehalten
                 fetch(`http://localhost:8000/get_all_journey/?bbox=${newBbox}&key=5cc87b12d7c5370001c1d6559e7fd9aab7a44ca1b7692b2adfeb2602&zoom=${newZoom}&type=${layerType}`)
                     .then(response => response.json())
@@ -190,7 +190,7 @@ const MapWrapper = forwardRef((props, ref) => {
                         source.addFeatures(parsedFeatures.filter(feature => feature.get('type') === layerType));
                     })
                     .catch(error => console.error('Error fetching data:', error));
-    
+
                 // Neue WMS-Abfrage
                 axios.get('http://localhost:8000/wms/', {
                     params: {

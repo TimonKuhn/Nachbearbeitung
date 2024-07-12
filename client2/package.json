@@ -1,0 +1,19 @@
+{
+    "name": "geoadmin-with-vanilla-openlayers",
+    "version": "1.0.0",
+    "description": "Using webpack as bundler",
+    "main": "index.html",
+    "scripts": {
+      "start": "parcel index.html --open",
+      "build": "parcel build index.html"
+    },
+    "dependencies": {
+      "ol": "6.5.0",
+      "proj4": "2.7.0"
+    },
+    "devDependencies": {
+      "@babel/core": "7.2.0",
+      "parcel-bundler": "^1.6.1"
+    },
+    "keywords": []
+  }

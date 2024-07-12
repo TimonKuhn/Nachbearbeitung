@@ -59,7 +59,7 @@ async def get_all_journey(
         properties = feature.get("properties", {})
         train_id = properties.get("train_id")
         train_type = properties.get("type")
-    
+
     # Skip fetch if the type is "gondola"
         if train_id and train_type != "gondola":
             journeys_geojson = fetch_journeys_for_train_id(train_id, key)
