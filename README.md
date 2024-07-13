@@ -115,7 +115,6 @@ Diese funktionierte aber auch nur, nachdem das Backend angepasst wurde, sodass d
 
 ![alt text](image-3.png)
 
-
 ## 6.) Reflexion der Änderungen:
 
 Ernüchternderweise hat sich in der Nacharbeit herausgestellt, dass ich mit meiner Konfiguration von Code, Key, PC etc. keinen Zugriff mehr habe zur GeOps-API. Deshalb musste auf die eigentliche Funktionalität der App leider verzichtet werden. Somit war die Nacharbeit eine eher trockene Übung um zu zeigen, dass die gefordeten Kompetenzen angewendet werden konnten. Die neue Architektur ist in der Abbildung unterhalb zu finden:
