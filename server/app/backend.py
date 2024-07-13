@@ -6,16 +6,14 @@ from fastapi.responses import StreamingResponse
 
 app = FastAPI()
 
+# CORS middleware to allow requests from your frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:1234"],  # Adjusted to match your frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Define the API key of GeoOps API
-key = "are not working anymore :( "
 
 # Function to fetch GeoJSON data from the provided API link
 @lru_cache(maxsize=128)
@@ -43,42 +41,33 @@ async def get_all_journey(
     key: str = Query(..., description="API key"),
     zoom: int = Query(12, description="Zoom level")
 ):
-    # Construct API URL with dynamic bounding box and provided API key
     api_url = f"https://api.geops.io/tracker-http/v1/trajectories/sbb/?bbox={bbox}&key={key}&zoom={zoom}"
     print(f"Constructed API URL: {api_url}")  # Log the constructed URL
 
-    # Fetch GeoJSON data from external API
     trajectories_geojson = fetch_geojson_from_external_api(api_url)
 
-    # Ensure we have a valid FeatureCollection
     if trajectories_geojson.get("type") != "FeatureCollection" or not isinstance(trajectories_geojson.get("features"), list):
         raise HTTPException(status_code=500, detail="Invalid GeoJSON data received from external API")
 
-    # Get journeys for each train ID in trajectories_geojson
     for feature in trajectories_geojson["features"]:
         properties = feature.get("properties", {})
         train_id = properties.get("train_id")
         train_type = properties.get("type")
 
-    # Skip fetch if the type is "gondola"
         if train_id and train_type != "gondola":
             journeys_geojson = fetch_journeys_for_train_id(train_id, key)
             properties["journeys"] = journeys_geojson.get("features", [])
 
-    # Return fetched GeoJSON data
     return trajectories_geojson
 
 # Endpoint to get calls based on train ID
 @app.get("/get_info/")
 async def get_info(train_id: str = Query(..., description="Train ID"), key: str = Query(..., description="API key")):
-    # Construct API URL with provided train ID and API key
     api_url = f"https://api.geops.io/tracker-http/v1/calls/{train_id}/?key={key}"
     print(f"Constructed API URL for get_info: {api_url}")  # Log the constructed URL
 
-    # Fetch GeoJSON data from external API
     calls_geojson = fetch_geojson_from_external_api(api_url)
 
-    # Return fetched GeoJSON data
     return calls_geojson
 
 # Define the new endpoint for the WFS request
@@ -86,7 +75,6 @@ async def get_info(train_id: str = Query(..., description="Train ID"), key: str 
 async def get_wfs_data(
     bbox: str = Query(..., description="Bounding box coordinates in format easting,northing,easting,northing")):
     print("wfs requested")
-    # Construct the WFS URL with the provided bbox parameter
     wfs_url = "http://localhost:8080/geoserver/wfs"
     params = {
         "service": "WFS",
@@ -100,12 +88,11 @@ async def get_wfs_data(
 
     try:
         response = requests.get(wfs_url, params=params)
-        response.raise_for_status()  # Raise an exception for 4xx/5xx responses
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
         raise HTTPException(status_code=500, detail=f"Error accessing GeoServer: {str(e)}")
     
     return StreamingResponse(response.iter_content(chunk_size=128), media_type="application/json")
-
 
 # Endpoint to get WMS image from GeoServer
 @app.get("/wms/")
@@ -126,17 +113,16 @@ def get_wms(layers: str = Query(..., alias="LAYERS"),
         "height": height,
         "srs": "EPSG:3857",
         "format": "image/png",
-        "transparent": "true"  # Ensure the background is transparent
+        "transparent": "true"
     }
 
     try:
         response = requests.get(wms_url, params=params, stream=True)
-        response.raise_for_status()  # Raise an exception for 4xx/5xx responses
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
         raise HTTPException(status_code=500, detail=f"Error accessing GeoServer: {str(e)}")
     
     return StreamingResponse(response.iter_content(chunk_size=128), media_type="image/png")
-
 
 if __name__ == "__main__":
     import uvicorn

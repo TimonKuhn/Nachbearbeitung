@@ -92,6 +92,9 @@ Es wird eine React App im Client2 geschaffen, welche im Hintergrund das Swissima
 Dabei war wichtig, das gitignore zu updaten!
 Es wurde geschaut dass die minimalsten Funktionen, die im Client noch giengen auch im Client2 vorhanden sind. Das wäre das panning & zooming, sowie die Layerwahl.
 
+In einer Vorlage (https://codesandbox.io/p/sandbox/vanilla-openlayers-with-a-wms-layer-06h77?file=%2Fsrc%2Fconfig.js) gab es bereits einen passenden WMS Layer über gesperrte Fusswege, dieser wurde behalten, um ihn gegen den eigenen WMS zu vergleichen.
+
+
 ### WMS
 
 Da nun der ganze Rahmen einfach, übersichtlich und verständlich ist, konnte der WMS hinzugefügt werden. Ein Einfrieren konnte mit den Funktionen "params" und "updateparams" gelöst werden.
@@ -108,6 +111,9 @@ Der WFS konnte nicht dargestellt werden, obwohl er das Backend abfragt, das json
 
 Ich habe mich wieder verrannt und meinen Code zu spaghetti verwandelt. Zurück auf den Stand, als der WMS funktionierte. Es wurde ein Beispielskript gefunden im Internet, analog dazu wurde die eigene Implementation umgesetzt. (https://openlayers.org/en/latest/examples/vector-wfs.html)
 
+Diese funktionierte aber auch nur, nachdem das Backend angepasst wurde, sodass dieses CORS unterstützt. Bei ersten Tests wurde schnell klar, das der Datenfluss sehr ineffizient ist. Deshalb wurden alle Layer standardmässig deaktiviert. Zoomt man aber hinein und aktiviert alle Layer, so funktioniert die App wie sie sollte:
+
+![alt text](image-3.png)
 
 
 ## 6.) Reflexion der Änderungen:
