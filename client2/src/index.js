@@ -62,15 +62,16 @@ const sperrungenLayer = new TileLayer({
 const neuerWmsLayerSource = new TileWMS({
   url: `http://localhost:8000/wms/`,
   params: {
-    'layers': 'ne:0',
-    'format': 'image/png', // beachte: 'format' statt 'FORMAT'
-    'transparent': true  // Parameter für Transparenz
-  }
+    'LAYERS': 'ne:0',
+    'FORMAT': 'image/png', // beachte: 'FORMAT' in Großbuchstaben
+    'TRANSPARENT': true  // Parameter für Transparenz
+  },
+  serverType: 'geoserver' // Option, falls GeoServer verwendet wird
 });
 
 const neuerWmsLayer = new TileLayer({
   id: "neuer-wms-layer",
-  opacity: 0.8,
+  opacity: 1,
   source: neuerWmsLayerSource,
   visible: true
 });
@@ -91,25 +92,6 @@ const map = new Map({
   layers: [orthophotoLayer, landeskarteLayer, sperrungenLayer, neuerWmsLayer],
   view: view
 });
-
-// Update WMS parameters on view change
-view.on('change:resolution', updateWmsLayerParams);
-view.on('change:center', updateWmsLayerParams);
-
-function updateWmsLayerParams() {
-  const extent = view.calculateExtent(map.getSize());
-  const bbox = extent.join(',');
-
-  // Logging nur, wenn BBOX sich ändert
-  console.log('Updating WMS layer BBOX:', bbox);
-
-  // Die WMS-Parameter im gewünschten Format aktualisieren
-  neuerWmsLayerSource.updateParams({
-    'bbox': bbox,
-    'width': map.getSize()[0],
-    'height': map.getSize()[1]
-  });
-}
 
 // Custom Control for Layer Switching
 class LayerSwitcherControl extends Control {
@@ -185,6 +167,3 @@ class LayerSwitcherControl extends Control {
 }
 
 map.addControl(new LayerSwitcherControl());
-
-// Initial update of WMS layer parameters
-updateWmsLayerParams();

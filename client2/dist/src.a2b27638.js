@@ -87722,15 +87722,16 @@ var sperrungenLayer = new _layer.Tile({
 var neuerWmsLayerSource = new _source.TileWMS({
   url: "http://localhost:8000/wms/",
   params: {
-    'layers': 'ne:0',
-    'format': 'image/png',
-    // beachte: 'format' statt 'FORMAT'
-    'transparent': true // Parameter für Transparenz
-  }
+    'LAYERS': 'ne:0',
+    'FORMAT': 'image/png',
+    // beachte: 'FORMAT' in Großbuchstaben
+    'TRANSPARENT': true // Parameter für Transparenz
+  },
+  serverType: 'geoserver' // Option, falls GeoServer verwendet wird
 });
 var neuerWmsLayer = new _layer.Tile({
   id: "neuer-wms-layer",
-  opacity: 0.8,
+  opacity: 1,
   source: neuerWmsLayerSource,
   visible: true
 });
@@ -87748,24 +87749,6 @@ var map = new _ol2.Map({
   layers: [orthophotoLayer, landeskarteLayer, sperrungenLayer, neuerWmsLayer],
   view: view
 });
-
-// Update WMS parameters on view change
-view.on('change:resolution', updateWmsLayerParams);
-view.on('change:center', updateWmsLayerParams);
-function updateWmsLayerParams() {
-  var extent = view.calculateExtent(map.getSize());
-  var bbox = extent.join(',');
-
-  // Logging nur, wenn BBOX sich ändert
-  console.log('Updating WMS layer BBOX:', bbox);
-
-  // Die WMS-Parameter im gewünschten Format aktualisieren
-  neuerWmsLayerSource.updateParams({
-    'bbox': bbox,
-    'width': map.getSize()[0],
-    'height': map.getSize()[1]
-  });
-}
 
 // Custom Control for Layer Switching
 var LayerSwitcherControl = /*#__PURE__*/function (_Control) {
@@ -87832,9 +87815,6 @@ var LayerSwitcherControl = /*#__PURE__*/function (_Control) {
   return _createClass(LayerSwitcherControl);
 }(_control.Control);
 map.addControl(new LayerSwitcherControl());
-
-// Initial update of WMS layer parameters
-updateWmsLayerParams();
 },{"./styles.css":"src/styles.css","ol/ol.css":"node_modules/ol/ol.css","proj4":"node_modules/proj4/lib/index.js","ol":"node_modules/ol/index.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/control":"node_modules/ol/control.js","ol/proj/proj4":"node_modules/ol/proj/proj4.js","ol/tilegrid/TileGrid":"node_modules/ol/tilegrid/TileGrid.js","./config":"src/config.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -87860,7 +87840,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51317" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57400" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

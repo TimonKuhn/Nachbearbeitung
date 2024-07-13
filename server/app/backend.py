@@ -109,10 +109,10 @@ async def get_wfs_data(
 
 # Endpoint to get WMS image from GeoServer
 @app.get("/wms/")
-def get_wms(layers: str = Query(..., alias="layers"),
-            bbox: str = Query(..., alias="bbox"),
-            width: int = Query(..., alias="width"),
-            height: int = Query(..., alias="height")):
+def get_wms(layers: str = Query(..., alias="LAYERS"),
+            bbox: str = Query(..., alias="BBOX"),
+            width: int = Query(..., alias="WIDTH"),
+            height: int = Query(..., alias="HEIGHT")):
     
     wms_url = "http://localhost:8080/geoserver/wms"
     params = {

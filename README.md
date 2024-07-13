@@ -93,7 +93,9 @@ Da nun der ganze Rahmen einfach, übersichtlich und verständlich ist, konnte de
 
 Leider funktioniert es nach wie vor nicht. Die Daten werden zwar geladen und visualisert, aber erstens kann ich den hintergrund nicht auf transparent setzen, da der Style im geoserver nicht erkannt wird. Ausserdem ist jeder einzelne tyle das gesammte bild, was unnütz ist.
 
+Neuer Tag, neues Glück: Durch den neustart hat die Transparenz plötzlich funktioniert. Und über eine Anpassung der "Alias" im Backend konnte der Fehler abgefangen werden, dass die WMS abfrage scheitert wenn die Parameter in Grossbuchstaben daherkamen.
 
+Nun funktioniert der WMS wie gewünscht.
 
 ### WFS
 
