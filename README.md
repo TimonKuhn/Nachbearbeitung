@@ -106,6 +106,8 @@ Nun funktioniert der WMS wie gewünscht.
 
 Der WFS konnte nicht dargestellt werden, obwohl er das Backend abfragt, das json parst, in einen vektorlayer hinzugefügt und schlussendlich das ganze visualisiert. Oder er sollte das alles tun, aber tut es doch nicht.
 
+Ich habe mich wieder verrannt und meinen Code zu spaghetti verwandelt. Zurück auf den Stand, als der WMS funktionierte. Es wurde ein Beispielskript gefunden im Internet, analog dazu wurde die eigene Implementation umgesetzt. (https://openlayers.org/en/latest/examples/vector-wfs.html)
+
 
 
 ## 6.) Reflexion der Änderungen:

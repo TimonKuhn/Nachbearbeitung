@@ -1,5 +1,6 @@
 import "./styles.css";
 import "ol/ol.css";
+
 import proj4 from "proj4";
 import { Map, View } from "ol";
 import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer";
@@ -7,9 +8,12 @@ import { XYZ, TileWMS, Vector as VectorSource } from "ol/source";
 import { defaults as defaultControls, ScaleLine, Control } from "ol/control";
 import { register } from "ol/proj/proj4";
 import TileGrid from "ol/tilegrid/TileGrid";
-import { TILEGRID_ORIGIN, TILEGRID_RESOLUTIONS, WMS_TILE_SIZE } from "./config";
 import GeoJSON from "ol/format/GeoJSON";
-import { Style, Stroke } from 'ol/style';
+import { bbox as bboxStrategy } from "ol/loadingstrategy";
+import { TILEGRID_ORIGIN, TILEGRID_RESOLUTIONS, WMS_TILE_SIZE } from "./config";
+import Style from 'ol/style/Style';
+import Stroke from 'ol/style/Stroke';
+import Fill from 'ol/style/Fill';
 
 // Projektionen für die Schweiz hinzufügen
 proj4.defs(
@@ -29,7 +33,7 @@ const orthophotoLayer = new TileLayer({
     url: `https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg`,
     attributions: '&copy; <a href="https://www.swisstopo.admin.ch/en/home.html">Swisstopo</a>'
   }),
-  visible: true
+  visible: true // Orthophoto sichtbar
 });
 
 // Landeskarte von Swisstopo
@@ -39,7 +43,7 @@ const landeskarteLayer = new TileLayer({
     url: `https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg`,
     attributions: '&copy; <a href="https://www.swisstopo.admin.ch/en/home.html">Swisstopo</a>'
   }),
-  visible: false
+  visible: false // Unsichtbar
 });
 
 // Tiled WMS Layer für Sperrungen Fusswege hinzufügen
@@ -56,7 +60,7 @@ const sperrungenLayer = new TileLayer({
       resolutions: TILEGRID_RESOLUTIONS
     })
   }),
-  visible: false
+  visible: false // Unsichtbar
 });
 
 // Neuer WMS Layer hinzufügen
@@ -74,50 +78,36 @@ const neuerWmsLayer = new TileLayer({
   id: "neuer-wms-layer",
   opacity: 1,
   source: neuerWmsLayerSource,
-  visible: true
+  visible: false // Unsichtbar
 });
 
-// Fetch WFS Data
-async function fetchWfsData(bbox) {
-  const url = `http://localhost:8000/wfs/?bbox=${bbox}`;
-  console.log(`Fetching WFS data from: ${url}`);
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch WFS data: ${response.statusText}`);
-  }
-  const data = await response.json();
-  console.log("WFS Data fetched:", data);
-  return data;
-}
+// WFS Layer hinzufügen
+const vectorSource = new VectorSource({
+  format: new GeoJSON(),
+  url: function (extent) {
+    return (
+      'http://localhost:8000/wfs/?' +
+      'bbox=' +
+      extent.join(',')
+    );
+  },
+  strategy: bboxStrategy,
+});
 
-// Create WFS Layer
-async function createWfsLayer(bbox) {
-  try {
-    const geojsonData = await fetchWfsData(bbox);
-    const wfsSource = new VectorSource({
-      features: new GeoJSON().readFeatures(geojsonData, {
-        featureProjection: 'EPSG:3857'
-      })
-    });
+const wfsLayer = new VectorLayer({
+  source: vectorSource,
+  style: new Style({
+    stroke: new Stroke({
+      width: 0.75,
+      color: 'white',
+    }),
+    fill: new Fill({
+      color: 'rgba(100, 100, 100, 0.25)',
+    }),
+  }),
+  visible: false // Unsichtbar
+});
 
-    const wfsLayer = new VectorLayer({
-      source: wfsSource,
-      visible: true,
-      style: new Style({
-        stroke: new Stroke({
-          color: 'blue',
-          width: 10
-        })
-      })
-    });
-
-    return wfsLayer;
-  } catch (error) {
-    console.error("Error creating WFS layer:", error);
-  }
-}
-
-// Initialize the map
 const view = new View({
   projection: "EPSG:3857",
   center: [924299.5, 5933573.7],
@@ -131,7 +121,7 @@ const map = new Map({
       units: "metric"
     })
   ]),
-  layers: [orthophotoLayer, landeskarteLayer, sperrungenLayer, neuerWmsLayer],
+  layers: [orthophotoLayer, landeskarteLayer, sperrungenLayer, neuerWmsLayer, wfsLayer], // Alle Layer hier hinzufügen
   view: view
 });
 
@@ -143,68 +133,84 @@ class LayerSwitcherControl extends Control {
     const element = document.createElement('div');
     element.className = 'layer-switcher ol-unselectable ol-control';
 
-    const layers = [
-      { layer: orthophotoLayer, name: 'Orthophoto' },
-      { layer: landeskarteLayer, name: 'Landeskarte' },
-      { layer: sperrungenLayer, name: 'Sperrungen Fusswege' },
-      { layer: neuerWmsLayer, name: 'Buslinien Stadt Bern' },
-      { layer: null, name: 'WFS Layer' } // Placeholder for WFS layer
-    ];
-
-    layers.forEach(({ layer, name }) => {
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.checked = layer ? layer.getVisible() : true; // WFS layer defaults to true
-      if (layer) {
-        checkbox.addEventListener('change', () => {
-          layer.setVisible(checkbox.checked);
-        });
-      }
-
-      const label = document.createElement('label');
-      label.appendChild(checkbox);
-      label.appendChild(document.createTextNode(name));
-
-      element.appendChild(label);
-      element.appendChild(document.createElement('br'));
+    const orthophotoCheckbox = document.createElement('input');
+    orthophotoCheckbox.type = 'checkbox';
+    orthophotoCheckbox.id = 'orthophoto-layer';
+    orthophotoCheckbox.checked = true; // Orthophoto standardmäßig aktiv
+    orthophotoCheckbox.addEventListener('change', () => {
+      orthophotoLayer.setVisible(orthophotoCheckbox.checked);
     });
+
+    const orthophotoLabel = document.createElement('label');
+    orthophotoLabel.htmlFor = 'orthophoto-layer';
+    orthophotoLabel.appendChild(document.createTextNode('Orthophoto'));
+
+    const landeskarteCheckbox = document.createElement('input');
+    landeskarteCheckbox.type = 'checkbox';
+    landeskarteCheckbox.id = 'landeskarte-layer';
+    landeskarteCheckbox.addEventListener('change', () => {
+      landeskarteLayer.setVisible(landeskarteCheckbox.checked);
+    });
+
+    const landeskarteLabel = document.createElement('label');
+    landeskarteLabel.htmlFor = 'landeskarte-layer';
+    landeskarteLabel.appendChild(document.createTextNode('Landeskarte'));
+
+    const sperrungenCheckbox = document.createElement('input');
+    sperrungenCheckbox.type = 'checkbox';
+    sperrungenCheckbox.id = 'sperrungen-layer';
+    sperrungenCheckbox.addEventListener('change', () => {
+      sperrungenLayer.setVisible(sperrungenCheckbox.checked);
+    });
+
+    const sperrungenLabel = document.createElement('label');
+    sperrungenLabel.htmlFor = 'sperrungen-layer';
+    sperrungenLabel.appendChild(document.createTextNode('Sperrungen Fusswege'));
+
+    const neuerWmsCheckbox = document.createElement('input');
+    neuerWmsCheckbox.type = 'checkbox';
+    neuerWmsCheckbox.id = 'neuer-wms-layer';
+    neuerWmsCheckbox.checked = false; // Neuer WMS Layer nicht standardmäßig aktiv
+    neuerWmsCheckbox.addEventListener('change', () => {
+      neuerWmsLayer.setVisible(neuerWmsCheckbox.checked);
+    });
+
+    const neuerWmsLabel = document.createElement('label');
+    neuerWmsLabel.htmlFor = 'neuer-wms-layer';
+    neuerWmsLabel.appendChild(document.createTextNode('Neuer WMS Layer'));
+
+    const wfsCheckbox = document.createElement('input');
+    wfsCheckbox.type = 'checkbox';
+    wfsCheckbox.id = 'wfs-layer';
+    wfsCheckbox.checked = false; // WFS Layer nicht standardmäßig aktiv
+    wfsCheckbox.addEventListener('change', () => {
+      wfsLayer.setVisible(wfsCheckbox.checked);
+    });
+
+    const wfsLabel = document.createElement('label');
+    wfsLabel.htmlFor = 'wfs-layer';
+    wfsLabel.appendChild(document.createTextNode('WFS Layer'));
+
+    element.appendChild(orthophotoCheckbox);
+    element.appendChild(orthophotoLabel);
+    element.appendChild(document.createElement('br'));
+    element.appendChild(landeskarteCheckbox);
+    element.appendChild(landeskarteLabel);
+    element.appendChild(document.createElement('br'));
+    element.appendChild(sperrungenCheckbox);
+    element.appendChild(sperrungenLabel);
+    element.appendChild(document.createElement('br'));
+    element.appendChild(neuerWmsCheckbox);
+    element.appendChild(neuerWmsLabel);
+    element.appendChild(document.createElement('br'));
+    element.appendChild(wfsCheckbox);
+    element.appendChild(wfsLabel);
 
     super({
       element: element,
       target: options.target
     });
   }
-
-  addWfsLayerCheckbox(wfsLayer) {
-    const layerSwitcher = this.element;
-
-    const wfsCheckbox = document.createElement('input');
-    wfsCheckbox.type = 'checkbox';
-    wfsCheckbox.checked = true; // Default to checked
-    wfsCheckbox.addEventListener('change', () => {
-      wfsLayer.setVisible(wfsCheckbox.checked);
-    });
-
-    const wfsLabel = document.createElement('label');
-    wfsLabel.appendChild(wfsCheckbox);
-    wfsLabel.appendChild(document.createTextNode('WFS Layer'));
-
-    layerSwitcher.appendChild(wfsLabel);
-    layerSwitcher.appendChild(document.createElement('br'));
-  }
 }
 
-// Create the LayerSwitcherControl and add it to the map
-const layerSwitcherControl = new LayerSwitcherControl();
-map.addControl(layerSwitcherControl);
-
-// Fetch and add WFS layer
-const bbox = '827000,5930000,830000,5936000';
-createWfsLayer(bbox).then((wfsLayer) => {
-  if (wfsLayer) {
-    map.addLayer(wfsLayer);
-
-    // Add the WFS layer checkbox to the LayerSwitcherControl
-    layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
-  }
-});
+map.addControl(new LayerSwitcherControl());
