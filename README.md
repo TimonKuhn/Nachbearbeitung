@@ -13,6 +13,7 @@ Die beiden Services wurden in QGis testweise eingebunden, wie in "Datenvisualisi
 https://map.bern.ch/arcgis/services/Geoportal/Haltestellen/MapServer/WFSServer
 https://map.bern.ch/arcgis/services/Geoportal/OeV_Linien/MapServer/WMSServer?request=GetCapabilities&service=WMS.
 Wie in Schritt 3 erwähnt, wurde der Anbieter für den WFS gewechselt, da dieser der Stadt Bern aus berechtigungsproblemen nicht verwendet werden konnte.
+https://ch-osm-services.geodatasolutions.ch/geoserver/ows?service=wfs&version=2.0.0&request=GetCapabilities
 
 
 ## 3.) Geoserver konfigurieren, WMS und WFS einbinden, konfigurieren, veröfentlichen und testen.
@@ -27,10 +28,12 @@ In der Layerdefinition kann definiert werden, dass die Koordinaten von LV95 auf 
 So läuft der WMS nun (auch in QGIS), eine  Beispielabfrage im Browser ist hiermit möglich: Wichtigstes Learning war hierbei, dass der Layername vor allem über den Workspace definiert wird!
 http://localhost:8080/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=ne:0&bbox=821802.7469837219,5615499.530783547,860986.6866042244,5919283.470404049&width=256&height=256&srs=EPSG:3857&format=image/png
 
+![alt text](image.png)
+
 ### WFS
 Der WFS lief lange nicht auf dem Geoserver. Schlussendlich konnte ich die getCapabilities abrufen:
 http://localhost:8080/geoserver/wfs?request=GetCapabilities
-Im Nachhinein habe ich festgestellt, dass ich auf den Vorlagen der Geoserver-Übung aufgebaut habe, wesshalb noch viele Artefakte übrig sind. 
+Im Nachhinein habe ich festgestellt, dass ich auf den Vorlagen der Geoserver-Übung aufgebaut habe, wesshalb noch viele Artefakte übrig sind.
 Auch hier bekomme ich ständig Errorcodes 403 (Forbidden). Das würd heissen, dass der Geoserver den WFS der Stadt Bern nichz beziehen darf.
 In QGis funktioniert das hinzufügen wunderbar, desshalb verstehe ich nicht, wieso das mit dem Geoserver nicht funktionieren sollte...
 
@@ -39,6 +42,8 @@ Der GetCapabilities des Ursprunges: https://ch-osm-services.geodatasolutions.ch/
 Der GetCapabilities des Geoservers: http://localhost:8080/geoserver/wfs?request=GetCapabilities
 Mein Geoserver funktioniert: http://localhost:8080/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=ne:magosm_bus_routes_line&outputFormat=application/json&srsname=EPSG:3857&bbox=812000,5900000,826000,5920000
 Um die Effizienz im Produkt besser zu machen, wurde zusätzlih zu den Buslinien die Eisenbahnlinien publiziert.
+
+![alt text](image-1.png)
 
 ## 4.) Integration im Backend von WMS und WFS:
 
@@ -110,7 +115,9 @@ openlayers - leaflet
 
 ## 6.) Reflexion der Änderungen:
 
-Ernüchternderweise hat sich in der Nacharbeit herausgestellt, dass ich mit meiner Konfiguration von Code, Key, PC etc. keinen Zugriff mehr habe zur GeOps-API. Deshalb musste auf die eigentliche Funktionalität der App leider verzichtet werden. Somit war die Nacharbeit eine eher trockene Übung um zu zeigen, dass die gefordeten Kompetenzen angewendet werden konnten.
+Ernüchternderweise hat sich in der Nacharbeit herausgestellt, dass ich mit meiner Konfiguration von Code, Key, PC etc. keinen Zugriff mehr habe zur GeOps-API. Deshalb musste auf die eigentliche Funktionalität der App leider verzichtet werden. Somit war die Nacharbeit eine eher trockene Übung um zu zeigen, dass die gefordeten Kompetenzen angewendet werden konnten. Die neue Architektur ist in der Abbildung unterhalb zu finden:
+
+![alt text](image-2.png)
 
 Die Überarbeitung war insofern ein anspruchvolles, eigenständiges Projekt, da es für mich Neuland war, ein Testat nicht zu erhalten. Somit ist mit der Gefährdung des Studienabschlusses ein zusätzlicher psychischer udn emotionaler Stress auf meinen Schultern gelandet, der mir zwischen Hochzeits-, Ehe- und "Leben-danach"-Vorbereitungen nicht eigentlich gefehlt hat. Allerdings war schwarz auf weiss klar, dass dieses Projekt, was im Semester entstand, aufgrund diversen Punkten nicht Testatwürdig war.
 
@@ -121,7 +128,7 @@ Dennoch bin ich schlussendlich zu einem Ergebnis gekommen, welches die Anforderu
 ## 7.) Kontrolle der Nacharbeit auf Vollständigkeit gemäss Mail von P.Bereuter
 
 Mit dem Schreiben dieser Zeilen Bestätige ich:
-- Dass ich die Überarbeitung selbständig in Einzelarbeit durchgeführt habe. Erst auf Aufforderung von S.Ebrelein habe ich meine Komillitonen um Rat gefragt bezüglich meinen Frontend-Problemen.
+- Dass ich die Überarbeitung selbständig in Einzelarbeit durchgeführt habe. Erst auf Aufforderung von S.Ebrelein habe ich einen Mitstudierenden um Rat gefragt bezüglich meinen Frontend-Problemen.
 - Vor KW32 die Überarbeitung abgegeben habe.
 - Die Überarbeitung in diesem Readme passend dokumentiert habe.
 - Die im Mail genannten, zu überarbeitenden Punkte nach bestem Wissen und Gewissen implementiert habe. Hierbei habe ich:
@@ -129,7 +136,7 @@ Mit dem Schreiben dieser Zeilen Bestätige ich:
 * Diesen WMS und WFS in einem Backend-Endpoint eingegliedert
 * Die Daten im Frontend visualisert.
 * Alle Codes so gestalltet, dass sie in der lokalen Umgebung verwendbar sind.
-* Die angeforderten Diagramme überarbeitet und im Readme eingebunden.
+* Das angeforderte Diagramme der Architektur überarbeitet und im Readme eingebunden.
 * Screenshots des Geoservers hinzugefügt.
 * ein Kapitel der Änderungen und Verbesserungen gewidmet.
 

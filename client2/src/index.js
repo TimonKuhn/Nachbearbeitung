@@ -64,10 +64,10 @@ const neuerWmsLayerSource = new TileWMS({
   url: `http://localhost:8000/wms/`,
   params: {
     'LAYERS': 'ne:0',
-    'FORMAT': 'image/png', // beachte: 'FORMAT' in Großbuchstaben
-    'TRANSPARENT': true  // Parameter für Transparenz
+    'FORMAT': 'image/png',
+    'TRANSPARENT': true
   },
-  serverType: 'geoserver' // Option, falls GeoServer verwendet wird
+  serverType: 'geoserver'
 });
 
 const neuerWmsLayer = new TileLayer({
@@ -82,7 +82,7 @@ async function fetchWfsData(bbox) {
   const url = `http://localhost:8000/wfs/?bbox=${bbox}`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log(url)
+  console.log(url);
   return data;
 }
 
@@ -92,13 +92,13 @@ async function createWfsLayer(bbox) {
   
   const wfsSource = new VectorSource({
     features: new GeoJSON().readFeatures(geojsonData, {
-      featureProjection: 'EPSG:3857' // Ensure the projection matches your map projection
+      featureProjection: 'EPSG:3857'
     })
   });
 
   const wfsLayer = new VectorLayer({
     source: wfsSource,
-    visible: true, // Default visibility
+    visible: true,
     style: new Style({
       stroke: new Stroke({
         color: 'blue',
@@ -113,7 +113,7 @@ async function createWfsLayer(bbox) {
 // Initialize the map
 const view = new View({
   projection: "EPSG:3857",
-  center: [924299.5, 5933573.7], // Koordinaten in EPSG:3857 für die Schweiz
+  center: [924299.5, 5933573.7],
   zoom: 8
 });
 
@@ -140,16 +140,19 @@ class LayerSwitcherControl extends Control {
       { layer: orthophotoLayer, name: 'Orthophoto' },
       { layer: landeskarteLayer, name: 'Landeskarte' },
       { layer: sperrungenLayer, name: 'Sperrungen Fusswege' },
-      { layer: neuerWmsLayer, name: 'Buslinien Stadt Bern' }
+      { layer: neuerWmsLayer, name: 'Buslinien Stadt Bern' },
+      { layer: null, name: 'WFS Layer' } // Placeholder for WFS layer
     ];
 
     layers.forEach(({ layer, name }) => {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
-      checkbox.checked = layer.getVisible();
-      checkbox.addEventListener('change', () => {
-        layer.setVisible(checkbox.checked);
-      });
+      checkbox.checked = layer ? layer.getVisible() : true; // WFS layer defaults to true
+      if (layer) {
+        checkbox.addEventListener('change', () => {
+          layer.setVisible(checkbox.checked);
+        });
+      }
 
       const label = document.createElement('label');
       label.appendChild(checkbox);
@@ -164,28 +167,35 @@ class LayerSwitcherControl extends Control {
       target: options.target
     });
   }
+
+  addWfsLayerCheckbox(wfsLayer) {
+    const layerSwitcher = this.element;
+
+    const wfsCheckbox = document.createElement('input');
+    wfsCheckbox.type = 'checkbox';
+    wfsCheckbox.checked = true; // Default to checked
+    wfsCheckbox.addEventListener('change', () => {
+      wfsLayer.setVisible(wfsCheckbox.checked);
+    });
+
+    const wfsLabel = document.createElement('label');
+    wfsLabel.appendChild(wfsCheckbox);
+    wfsLabel.appendChild(document.createTextNode('WFS Layer'));
+
+    layerSwitcher.appendChild(wfsLabel);
+    layerSwitcher.appendChild(document.createElement('br'));
+  }
 }
 
-map.addControl(new LayerSwitcherControl());
+// Create the LayerSwitcherControl and add it to the map
+const layerSwitcherControl = new LayerSwitcherControl();
+map.addControl(layerSwitcherControl);
 
 // Fetch and add WFS layer
 const bbox = '827000,5930000,830000,5936000';
 createWfsLayer(bbox).then((wfsLayer) => {
   map.addLayer(wfsLayer);
 
-  // Update the LayerSwitcherControl to include the WFS layer
-  const wfsCheckbox = document.createElement('input');
-  wfsCheckbox.type = 'checkbox';
-  wfsCheckbox.checked = true;
-  wfsCheckbox.addEventListener('change', () => {
-    wfsLayer.setVisible(wfsCheckbox.checked);
-  });
-
-  const wfsLabel = document.createElement('label');
-  wfsLabel.appendChild(wfsCheckbox);
-  wfsLabel.appendChild(document.createTextNode('WFS Layer'));
-
-  const layerSwitcher = document.querySelector('.layer-switcher');
-  layerSwitcher.appendChild(wfsLabel);
-  layerSwitcher.appendChild(document.createElement('br'));
+  // Add the WFS layer checkbox to the LayerSwitcherControl
+  layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
 });
