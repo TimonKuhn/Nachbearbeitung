@@ -1,14 +1,15 @@
 import "./styles.css";
 import "ol/ol.css";
-
 import proj4 from "proj4";
 import { Map, View } from "ol";
-import { Tile as TileLayer } from "ol/layer";
-import { XYZ, TileWMS } from "ol/source";
+import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer";
+import { XYZ, TileWMS, Vector as VectorSource } from "ol/source";
 import { defaults as defaultControls, ScaleLine, Control } from "ol/control";
 import { register } from "ol/proj/proj4";
 import TileGrid from "ol/tilegrid/TileGrid";
 import { TILEGRID_ORIGIN, TILEGRID_RESOLUTIONS, WMS_TILE_SIZE } from "./config";
+import GeoJSON from "ol/format/GeoJSON";
+import { Style, Stroke } from 'ol/style';
 
 // Projektionen für die Schweiz hinzufügen
 proj4.defs(
@@ -76,6 +77,40 @@ const neuerWmsLayer = new TileLayer({
   visible: true
 });
 
+// Fetch WFS Data
+async function fetchWfsData(bbox) {
+  const url = `http://localhost:8000/wfs/?bbox=${bbox}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(url)
+  return data;
+}
+
+// Create WFS Layer
+async function createWfsLayer(bbox) {
+  const geojsonData = await fetchWfsData(bbox);
+  
+  const wfsSource = new VectorSource({
+    features: new GeoJSON().readFeatures(geojsonData, {
+      featureProjection: 'EPSG:3857' // Ensure the projection matches your map projection
+    })
+  });
+
+  const wfsLayer = new VectorLayer({
+    source: wfsSource,
+    visible: true, // Default visibility
+    style: new Style({
+      stroke: new Stroke({
+        color: 'blue',
+        width: 10
+      })
+    })
+  });
+
+  return wfsLayer;
+}
+
+// Initialize the map
 const view = new View({
   projection: "EPSG:3857",
   center: [924299.5, 5933573.7], // Koordinaten in EPSG:3857 für die Schweiz
@@ -101,63 +136,28 @@ class LayerSwitcherControl extends Control {
     const element = document.createElement('div');
     element.className = 'layer-switcher ol-unselectable ol-control';
 
-    const orthophotoCheckbox = document.createElement('input');
-    orthophotoCheckbox.type = 'checkbox';
-    orthophotoCheckbox.id = 'orthophoto-layer';
-    orthophotoCheckbox.checked = true;
-    orthophotoCheckbox.addEventListener('change', () => {
-      orthophotoLayer.setVisible(orthophotoCheckbox.checked);
+    const layers = [
+      { layer: orthophotoLayer, name: 'Orthophoto' },
+      { layer: landeskarteLayer, name: 'Landeskarte' },
+      { layer: sperrungenLayer, name: 'Sperrungen Fusswege' },
+      { layer: neuerWmsLayer, name: 'Buslinien Stadt Bern' }
+    ];
+
+    layers.forEach(({ layer, name }) => {
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = layer.getVisible();
+      checkbox.addEventListener('change', () => {
+        layer.setVisible(checkbox.checked);
+      });
+
+      const label = document.createElement('label');
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(name));
+
+      element.appendChild(label);
+      element.appendChild(document.createElement('br'));
     });
-
-    const orthophotoLabel = document.createElement('label');
-    orthophotoLabel.htmlFor = 'orthophoto-layer';
-    orthophotoLabel.appendChild(document.createTextNode('Orthophoto'));
-
-    const landeskarteCheckbox = document.createElement('input');
-    landeskarteCheckbox.type = 'checkbox';
-    landeskarteCheckbox.id = 'landeskarte-layer';
-    landeskarteCheckbox.addEventListener('change', () => {
-      landeskarteLayer.setVisible(landeskarteCheckbox.checked);
-    });
-
-    const landeskarteLabel = document.createElement('label');
-    landeskarteLabel.htmlFor = 'landeskarte-layer';
-    landeskarteLabel.appendChild(document.createTextNode('Landeskarte'));
-
-    const sperrungenCheckbox = document.createElement('input');
-    sperrungenCheckbox.type = 'checkbox';
-    sperrungenCheckbox.id = 'sperrungen-layer';
-    sperrungenCheckbox.addEventListener('change', () => {
-      sperrungenLayer.setVisible(sperrungenCheckbox.checked);
-    });
-
-    const sperrungenLabel = document.createElement('label');
-    sperrungenLabel.htmlFor = 'sperrungen-layer';
-    sperrungenLabel.appendChild(document.createTextNode('Sperrungen Fusswege'));
-
-    const neuerWmsCheckbox = document.createElement('input');
-    neuerWmsCheckbox.type = 'checkbox';
-    neuerWmsCheckbox.id = 'neuer-wms-layer';
-    neuerWmsCheckbox.checked = true;
-    neuerWmsCheckbox.addEventListener('change', () => {
-      neuerWmsLayer.setVisible(neuerWmsCheckbox.checked);
-    });
-
-    const neuerWmsLabel = document.createElement('label');
-    neuerWmsLabel.htmlFor = 'neuer-wms-layer';
-    neuerWmsLabel.appendChild(document.createTextNode('Neuer WMS Layer'));
-
-    element.appendChild(orthophotoCheckbox);
-    element.appendChild(orthophotoLabel);
-    element.appendChild(document.createElement('br'));
-    element.appendChild(landeskarteCheckbox);
-    element.appendChild(landeskarteLabel);
-    element.appendChild(document.createElement('br'));
-    element.appendChild(sperrungenCheckbox);
-    element.appendChild(sperrungenLabel);
-    element.appendChild(document.createElement('br'));
-    element.appendChild(neuerWmsCheckbox);
-    element.appendChild(neuerWmsLabel);
 
     super({
       element: element,
@@ -167,3 +167,25 @@ class LayerSwitcherControl extends Control {
 }
 
 map.addControl(new LayerSwitcherControl());
+
+// Fetch and add WFS layer
+const bbox = '827000,5930000,830000,5936000';
+createWfsLayer(bbox).then((wfsLayer) => {
+  map.addLayer(wfsLayer);
+
+  // Update the LayerSwitcherControl to include the WFS layer
+  const wfsCheckbox = document.createElement('input');
+  wfsCheckbox.type = 'checkbox';
+  wfsCheckbox.checked = true;
+  wfsCheckbox.addEventListener('change', () => {
+    wfsLayer.setVisible(wfsCheckbox.checked);
+  });
+
+  const wfsLabel = document.createElement('label');
+  wfsLabel.appendChild(wfsCheckbox);
+  wfsLabel.appendChild(document.createTextNode('WFS Layer'));
+
+  const layerSwitcher = document.querySelector('.layer-switcher');
+  layerSwitcher.appendChild(wfsLabel);
+  layerSwitcher.appendChild(document.createElement('br'));
+});
