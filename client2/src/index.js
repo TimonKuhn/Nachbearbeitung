@@ -80,34 +80,41 @@ const neuerWmsLayer = new TileLayer({
 // Fetch WFS Data
 async function fetchWfsData(bbox) {
   const url = `http://localhost:8000/wfs/?bbox=${bbox}`;
+  console.log(`Fetching WFS data from: ${url}`);
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch WFS data: ${response.statusText}`);
+  }
   const data = await response.json();
-  console.log(url);
+  console.log("WFS Data fetched:", data);
   return data;
 }
 
 // Create WFS Layer
 async function createWfsLayer(bbox) {
-  const geojsonData = await fetchWfsData(bbox);
-  
-  const wfsSource = new VectorSource({
-    features: new GeoJSON().readFeatures(geojsonData, {
-      featureProjection: 'EPSG:3857'
-    })
-  });
-
-  const wfsLayer = new VectorLayer({
-    source: wfsSource,
-    visible: true,
-    style: new Style({
-      stroke: new Stroke({
-        color: 'blue',
-        width: 10
+  try {
+    const geojsonData = await fetchWfsData(bbox);
+    const wfsSource = new VectorSource({
+      features: new GeoJSON().readFeatures(geojsonData, {
+        featureProjection: 'EPSG:3857'
       })
-    })
-  });
+    });
 
-  return wfsLayer;
+    const wfsLayer = new VectorLayer({
+      source: wfsSource,
+      visible: true,
+      style: new Style({
+        stroke: new Stroke({
+          color: 'blue',
+          width: 10
+        })
+      })
+    });
+
+    return wfsLayer;
+  } catch (error) {
+    console.error("Error creating WFS layer:", error);
+  }
 }
 
 // Initialize the map
@@ -194,8 +201,10 @@ map.addControl(layerSwitcherControl);
 // Fetch and add WFS layer
 const bbox = '827000,5930000,830000,5936000';
 createWfsLayer(bbox).then((wfsLayer) => {
-  map.addLayer(wfsLayer);
+  if (wfsLayer) {
+    map.addLayer(wfsLayer);
 
-  // Add the WFS layer checkbox to the LayerSwitcherControl
-  layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
+    // Add the WFS layer checkbox to the LayerSwitcherControl
+    layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
+  }
 });

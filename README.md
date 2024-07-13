@@ -104,14 +104,9 @@ Nun funktioniert der WMS wie gewünscht.
 
 ### WFS
 
+Der WFS konnte nicht dargestellt werden, obwohl er das Backend abfragt, das json parst, in einen vektorlayer hinzugefügt und schlussendlich das ganze visualisiert. Oder er sollte das alles tun, aber tut es doch nicht.
 
 
-
-
-react app
-darstellung wfs wms
-zerst struktur
-openlayers - leaflet
 
 ## 6.) Reflexion der Änderungen:
 

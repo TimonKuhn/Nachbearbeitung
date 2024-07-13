@@ -87751,17 +87751,24 @@ function _fetchWfsData() {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           url = "http://localhost:8000/wfs/?bbox=".concat(bbox);
-          _context.next = 3;
+          console.log("Fetching WFS data from: ".concat(url));
+          _context.next = 4;
           return fetch(url);
-        case 3:
+        case 4:
           response = _context.sent;
-          _context.next = 6;
+          if (response.ok) {
+            _context.next = 7;
+            break;
+          }
+          throw new Error("Failed to fetch WFS data: ".concat(response.statusText));
+        case 7:
+          _context.next = 9;
           return response.json();
-        case 6:
-          data = _context.sent;
-          console.log(url);
-          return _context.abrupt("return", data);
         case 9:
+          data = _context.sent;
+          console.log("WFS Data fetched:", data);
+          return _context.abrupt("return", data);
+        case 12:
         case "end":
           return _context.stop();
       }
@@ -87778,9 +87785,10 @@ function _createWfsLayer() {
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          _context2.next = 2;
+          _context2.prev = 0;
+          _context2.next = 3;
           return fetchWfsData(bbox);
-        case 2:
+        case 3:
           geojsonData = _context2.sent;
           wfsSource = new _source.Vector({
             features: new _GeoJSON.default().readFeatures(geojsonData, {
@@ -87798,11 +87806,15 @@ function _createWfsLayer() {
             })
           });
           return _context2.abrupt("return", wfsLayer);
-        case 6:
+        case 9:
+          _context2.prev = 9;
+          _context2.t0 = _context2["catch"](0);
+          console.error("Error creating WFS layer:", _context2.t0);
+        case 12:
         case "end":
           return _context2.stop();
       }
-    }, _callee2);
+    }, _callee2, null, [[0, 9]]);
   }));
   return _createWfsLayer.apply(this, arguments);
 }
@@ -87891,10 +87903,12 @@ map.addControl(layerSwitcherControl);
 // Fetch and add WFS layer
 var bbox = '827000,5930000,830000,5936000';
 createWfsLayer(bbox).then(function (wfsLayer) {
-  map.addLayer(wfsLayer);
+  if (wfsLayer) {
+    map.addLayer(wfsLayer);
 
-  // Add the WFS layer checkbox to the LayerSwitcherControl
-  layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
+    // Add the WFS layer checkbox to the LayerSwitcherControl
+    layerSwitcherControl.addWfsLayerCheckbox(wfsLayer);
+  }
 });
 },{"./styles.css":"src/styles.css","ol/ol.css":"node_modules/ol/ol.css","proj4":"node_modules/proj4/lib/index.js","ol":"node_modules/ol/index.js","ol/layer":"node_modules/ol/layer.js","ol/source":"node_modules/ol/source.js","ol/control":"node_modules/ol/control.js","ol/proj/proj4":"node_modules/ol/proj/proj4.js","ol/tilegrid/TileGrid":"node_modules/ol/tilegrid/TileGrid.js","./config":"src/config.js","ol/format/GeoJSON":"node_modules/ol/format/GeoJSON.js","ol/style":"node_modules/ol/style.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

@@ -84,8 +84,8 @@ async def get_info(train_id: str = Query(..., description="Train ID"), key: str 
 # Define the new endpoint for the WFS request
 @app.get("/wfs/")
 async def get_wfs_data(
-    bbox: str = Query(..., description="Bounding box coordinates in format easting,northing,easting,northing")
-):
+    bbox: str = Query(..., description="Bounding box coordinates in format easting,northing,easting,northing")):
+    print("wfs requested")
     # Construct the WFS URL with the provided bbox parameter
     wfs_url = "http://localhost:8080/geoserver/wfs"
     params = {
@@ -113,7 +113,8 @@ def get_wms(layers: str = Query(..., alias="LAYERS"),
             bbox: str = Query(..., alias="BBOX"),
             width: int = Query(..., alias="WIDTH"),
             height: int = Query(..., alias="HEIGHT")):
-    
+    print("wms requested")
+
     wms_url = "http://localhost:8080/geoserver/wms"
     params = {
         "service": "WMS",
